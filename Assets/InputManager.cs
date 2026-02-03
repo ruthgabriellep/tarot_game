@@ -1,5 +1,6 @@
 using UnityEngine;
-public class CharacterController2D : MonoBehaviour
+
+public class InputManager : MonoBehaviour
 {
     private Vector2 moveDirection = Vector2.zero;
     private bool jumpPressed = false;
@@ -74,10 +75,6 @@ public class CharacterController2D : MonoBehaviour
     {
         return moveDirection;
     }
-
-    // for any of the below 'Get' methods, if we're getting it then we're also using it,
-    // which means we should set it to false so that it can't be used again until actually
-    // pressed again.
 
     public bool GetJumpPressed() 
     {
