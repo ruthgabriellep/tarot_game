@@ -12,6 +12,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/EnemyFollowPlayer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -54,6 +55,7 @@
       <workItem from="1769517382121" duration="37000" />
       <workItem from="1769517502181" duration="2078000" />
       <workItem from="1770039150066" duration="943000" />
+      <workItem from="1770222432579" duration="1492000" />
     </task>
     <servers />
   </component>
