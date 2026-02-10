@@ -20,7 +20,9 @@ public class DialogueTrigger : MonoBehaviour
         {
             visualCue.SetActive(true);
             if (InputManager.GetInstance().GetInteractPressed())
-                 
+            {
+                Debug.Log(inkJSON.text);
+            }
         }
         else
         {
