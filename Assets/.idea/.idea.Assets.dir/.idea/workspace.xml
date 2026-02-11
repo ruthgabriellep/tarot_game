@@ -11,6 +11,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/InputManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/InputSystem_Actions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/EnemyFollowPlayer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -56,6 +58,8 @@
       <workItem from="1769517502181" duration="2078000" />
       <workItem from="1770039150066" duration="943000" />
       <workItem from="1770222432579" duration="1492000" />
+      <workItem from="1770738825103" duration="16000" />
+      <workItem from="1770822749178" duration="1748000" />
     </task>
     <servers />
   </component>
