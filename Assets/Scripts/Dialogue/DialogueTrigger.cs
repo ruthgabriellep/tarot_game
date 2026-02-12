@@ -6,7 +6,7 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private GameObject visualCue;
 
     [Header("Ink JSON")] 
-    [SerializeField] private TextAsset inkJSON;
+    [SerializeField] private TextAsset inkJson;
     private bool playerInRange;
 
     private void Awake()
@@ -22,7 +22,7 @@ public class DialogueTrigger : MonoBehaviour
             visualCue.SetActive(true);
             if (InputManager.GetInstance()GetInteractPressed())
             {
-                Debug.Log(inkJSON.text);
+                Debug.Log(inkJson.text);
             }
         }
         else
