@@ -3,19 +3,17 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    // private PlayerInput playerInput;
 
-    private PlayerInput playerInput;
-
-    private InputAction moveAction;
-
-    private void Awake()
-    {
-        playerInput = GetComponent<PlayerInput>();
-        moveAction = playerInput.actions["Move"];
-        moveAction.ReadValue<float>();
-    }
-
-    private InputSystem_Actions inputSystems_Actions;
+    // private InputAction interactAction;
+    // private void Awake()
+    // {
+    //     playerInput = GetComponent<PlayerInput>();
+    //     interactAction = playerInput.actions["Interact"];
+    //     interactAction.ReadValue<float>();
+    // }
+    
+    private InputSystem_Actions inputSystem_Actions;
     
     private void Awake()
     {
@@ -29,8 +27,8 @@ public class InputManager : MonoBehaviour
     
     private void OnDisable()
     {
-        inputSytem_Actions.Disable();
-        inputSystem_Actions.Player.Move.started += Move;
+        inputSystem_Actions.Disable();
+        inputSystem_Actions.Player.Move.started -= Move;
     }
     
     void Start()
@@ -38,11 +36,11 @@ public class InputManager : MonoBehaviour
         inputSystem_Actions.Player.Move.started += Move;
         inputSystem_Actions.Player.Move.performed += Move;
         inputSystem_Actions.Player.Move.canceled += Move;
-    
-        inputSystem_Actions.Player.Look.performed += context => Move(context);
+        
+        inputSystem_Actions.Player.Move.started += context => Move(context);
     }
     
-    private void Move(InputAction.CallbackContext context)
+    public void Move(InputAction.CallbackContext context)
     {
         Debug.Log("Move");
     }
@@ -51,9 +49,7 @@ public class InputManager : MonoBehaviour
     {
         Vector2 move = inputSystem_Actions.Player.Move.ReadValue<Vector2>();
         Debug.Log(move);
-        inputSystem_Actions.Player.Move.ReadValue<float>();
-        if (inputSystem_Actions.Player.Move.ReadValue<float>() == 1)
-            if (inputSystem_Actions.Player.Move.triggered)
-                Debug.Log("Move");
+        if (inputSystem_Actions.Player.Move.triggered)
+            Debug.Log("Move");
     }
 }
