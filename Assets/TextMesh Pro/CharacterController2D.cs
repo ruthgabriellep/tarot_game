@@ -1,77 +1,38 @@
+using System;
 using UnityEngine;
 
 public class CharacterController2D : MonoBehaviour
 {
-      [Header("Movement Params")]
-    public float runSpeed = 6.0f;
-    public float sprintSpeed = 8.0f;
-    public float gravityScale = 20.0f;
+     [SerializeField] 
+     public float moveSpeed = 5f;
+     public float sprintSpeed = 5f;
 
-    // components attached to player
-    private BoxCollider2D coll;
-    private Rigidbody2D rb;
+     private Rigidbody2D _rigidbody;
+     private Vector2 _moveVector;
+     private bool _sprintRequested = false;
 
-    // other
-    private bool isGrounded = false;
+     void Start()
+     {
+          _rigidbody = GetComponent<Rigidbody2D>();
+     }
 
-    private void Awake()
-    {
-        coll = GetComponent<BoxCollider2D>();
-        rb = GetComponent<Rigidbody2D>();
+     private void FixedUpdate()
+     {
+          _rigidbody.linearVelocityX = _moveVector.x * moveSpeed;
 
-        rb.gravityScale = gravityScale;
-    }
+          if (_sprintRequested)
+          {
+                
+          }
+     }
 
-    public void FixedUpdate()
-    {
-        if (DialogueManager.GetInstance().dialogueIsPlaying)
-        {
-            return;
-        }
+     public void Move(Vector2 moveVector)
+     {
+          _moveVector = moveVector;
+     }
 
-        UpdateIsGrounded();
-
-        HandleHorizontalMovement();
-
-        HandleJumping();
-    }
-
-    private void UpdateIsGrounded()
-    {
-        Bounds colliderBounds = coll.bounds;
-        float colliderRadius = coll.size.x * 0.4f * Mathf.Abs(transform.localScale.x);
-        Vector3 groundCheckPos = colliderBounds.min + new Vector3(colliderBounds.size.x * 0.5f, colliderRadius * 0.9f, 0);
-        // Check if player is grounded
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckPos, colliderRadius);
-        // Check if any of the overlapping colliders are not player collider, if so, set isGrounded to true
-        this.isGrounded = false;
-        if (colliders.Length > 0)
-        {
-            for (int i = 0; i < colliders.Length; i++)
-            {
-                if (colliders[i] != coll)
-                {
-                    this.isGrounded = true;
-                    break;
-                }
-            }
-        }
-    }
-
-    private void HandleHorizontalMovement()
-    {
-        Vector2 moveDirection = InputManager.GetInstance().GetMoveDirection();
-        rb.linearVelocity = new Vector2(moveDirection.x * runSpeed, rb.linearVelocity.y);
-    }
-
-    private void HandleJumping()
-    {
-        bool sprintPressed = InputManager.GetInstance().GetSprintPressed();
-        if (isGrounded && sprintPressed)
-        {
-            isGrounded = false;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, sprintSpeed);
-        }
-    }
-
+     public void Sprint()
+     {
+          _sprintRequested = true;
+     }
 }
