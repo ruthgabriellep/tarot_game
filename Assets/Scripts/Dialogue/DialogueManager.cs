@@ -12,7 +12,7 @@ public class DialogueManager : MonoBehaviour
 
     private Story currentStory;
 
-    private bool dialogueIsPlaying;
+    public bool dialogueIsPlaying;
     
     private static DialogueManager instance;
 
@@ -42,7 +42,7 @@ public class DialogueManager : MonoBehaviour
         {
             return;
         }
-
+        
         if (InputManager.GetInstance().GetSubmitPressed())
         {
             ContinueStory();
@@ -71,10 +71,6 @@ public class DialogueManager : MonoBehaviour
         if (currentStory.canContinue)
         {
             dialogueText.text = currentStory.Continue();
-        }
-        else
-        {
-            ExitDialogueMode();
         }
     }
     
