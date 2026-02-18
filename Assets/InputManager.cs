@@ -11,6 +11,8 @@ public class InputManager : MonoBehaviour
     //
     // private InputAction sprintAction;
     //
+    // private CharacterController2D characterController2D;
+    //
     // private void Awake()
     // {
     //     playerInput = GetComponent<PlayerInput>();
@@ -24,145 +26,125 @@ public class InputManager : MonoBehaviour
     //     playerInput = GetComponent<PlayerInput>();
     //     sprintAction = playerInput.actions["Sprint"];
     //     sprintAction.ReadValue<float>();
+    //
+    //     characterController2D = GetComponent<CharacterController2D>();
     // }
     //
+    // private void Sprint(InputAction.CallbackContext context)
+    // {
+    //     characterController2D.Sprint();
+    // }
+    //
+    // void Update()
+    // {
+    //     Vector2 moveVector = moveAction.ReadValue<Vector2>();
+    //     characterController2D.Move(moveVector);
+    // }
     
-    private Vector2 moveDirection = Vector2.zero;
-    private bool sprintPressed = false;
-    private bool interactPressed = false;
-    private bool submitPressed = false;
 
+    private Vector2 _moveDirection = Vector2.zero;
+    private bool _sprintPressed = false;
+    private bool _interactPressed = false;
+    private bool _submitPressed = false;
+    
+    public CharacterController2D characterController2D;
+    
     private static InputManager instance;
-
+    
     private void Awake()
     {
         if (instance != null)
         {
             Debug.LogError("Found more than one Input Manager in the scene.");
         }
+    
         instance = this;
-    }
 
-    public static InputManager GetInstance() 
+        characterController2D = GetComponent<CharacterController2D>();
+    }
+    
+    public static InputManager GetInstance()
     {
         return instance;
     }
-
+    
     public void MovePressed(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            moveDirection = context.ReadValue<Vector2>();
+            _moveDirection = context.ReadValue<Vector2>();
         }
         else if (context.canceled)
         {
-            moveDirection = context.ReadValue<Vector2>();
-        } 
+            _moveDirection = context.ReadValue<Vector2>();
+        }
     }
-
+    
     public void SprintPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            sprintPressed = true;
+            _sprintPressed = true;
         }
         else if (context.canceled)
         {
-            sprintPressed = false;
+            _sprintPressed = false;
         }
     }
-
-    public void InteractButtonPressed(InputAction.CallbackContext context)
+    
+    public void InteractPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            interactPressed = true;
+            _interactPressed = true;
         }
         else if (context.canceled)
         {
-            interactPressed = false;
-        } 
+            _interactPressed = false;
+        }
     }
-
+    
     public void SubmitPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            submitPressed = true;
+            _submitPressed = true;
         }
         else if (context.canceled)
         {
-            submitPressed = false;
-        } 
+            _submitPressed = false;
+        }
     }
-
-    public Vector2 GetMoveDirection() 
+    
+    public Vector2 GetMoveDirection()
     {
-        return moveDirection;
+        return _moveDirection;
     }
-
-    public bool GetSprintPressed() 
+    
+    public bool GetSprintPressed()
     {
-        bool result = sprintPressed;
-        sprintPressed = false;
+        bool result = _sprintPressed;
+        _sprintPressed = false;
         return result;
     }
-
-    public bool GetInteractPressed() 
+    
+    public bool GetInteractPressed()
     {
-        bool result = interactPressed;
-        interactPressed = false;
+        bool result = _interactPressed;
+        _interactPressed = false;
         return result;
     }
-
-    public bool GetSubmitPressed() 
+    
+    public bool GetSubmitPressed()
     {
-        bool result = submitPressed;
-        submitPressed = false;
+        bool result = _submitPressed;
+        _submitPressed = false;
         return result;
     }
-
-    public void RegisterSubmitPressed() 
+    
+    public void RegisterSubmitPressed()
     {
-        submitPressed = false;
+        _submitPressed = false;
     }
 
 }
-    
-    //
-    // private InputSystem_Actions inputSystem_Actions;
-    //
-    // private void Awake()
-    // {
-    //     inputSystem_Actions = new InputSystem_Actions();
-    // }
-    //
-    // private void OnEnable()
-    // {
-    //     inputSystem_Actions.Enable();
-    // }
-    //
-    // private void OnDisable()
-    // {
-    //     inputSystem_Actions.Disable();
-    //     inputSystem_Actions.Player.Move.started -= Move;
-    // }
-    //
-    // void Start()
-    // {
-    //     inputSystem_Actions.Player.Move.started += Move;
-    //     inputSystem_Actions.Player.Move.performed += Move;
-    //     inputSystem_Actions.Player.Move.canceled += Move;
-    //     
-    //     inputSystem_Actions.Player.Move.started += context => Move(context);
-    // }
-    //
-    // public void Move(InputAction.CallbackContext context)
-    // {
-    //     Debug.Log("Move");
-    // }
-    //
-    // private void Update()
-    // {
-    //     Vector2 move = inputSystem_Actions.Player.Move.ReadValue<Vector2>();
-    // }

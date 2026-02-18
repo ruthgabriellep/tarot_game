@@ -452,6 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208f02a319c19e04490fe1693964c44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterController2D: {fileID: 0}
 --- !u!1 &208483706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,9 +1860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e54b057502b3e4ea2235208a10e152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  interactSpeed: 5
-  sprintSpeed: 5
+  _moveSpeed: 5
 --- !u!1001 &3999634250979459582
 PrefabInstance:
   m_ObjectHideFlags: 0
