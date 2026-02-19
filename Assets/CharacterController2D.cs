@@ -7,23 +7,23 @@ public class CharacterController2D : MonoBehaviour
      public float moveSpeed = 5f;
      public float sprintSpeed = 7f;
 
-     public Rigidbody2D rigidbody;
+     public Rigidbody2D rb;
      private Vector2 moveVector;
      private bool sprintRequested = false;
      
 
      void Start()
      {
-          rigidbody = GetComponent<Rigidbody2D>();
+          rb = GetComponent<Rigidbody2D>();
      }
 
      private void FixedUpdate()
      {
-          rigidbody.linearVelocityX = moveVector.x * moveSpeed;
+          rb.linearVelocityX = moveVector.x * moveSpeed;
 
           if (sprintRequested)
           {
-               rigidbody.linearVelocityX = sprintSpeed;
+               rb.linearVelocityX = sprintSpeed;
           }
      }
 
