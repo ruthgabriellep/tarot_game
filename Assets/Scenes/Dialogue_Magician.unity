@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 125106734}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 2.16, z: -10}
+  m_LocalPosition: {x: 6.89, y: 7.97, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -349,10 +349,10 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 208f02a319c19e04490fe1693964c44a, type: 3}
-        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 151695386}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: MovePressed
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -365,10 +365,10 @@ MonoBehaviour:
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 208f02a319c19e04490fe1693964c44a, type: 3}
-        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 151695386}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: InteractPressed
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -379,22 +379,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
     m_ActionName: 'Player/Interact[/Keyboard/e]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: 208f02a319c19e04490fe1693964c44a, type: 3}
-        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
-        m_MethodName: set_name
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 641cd816-40e6-41b4-8c3d-04687c349290
-    m_ActionName: 'Player/Sprint[/Keyboard/leftShift]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: c95b2375-e6d9-4b88-9c4c-c5e76515df4b
@@ -435,6 +419,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d7854fea-e70e-4bbe-a008-34998563beb3
+    m_ActionName: 'Player/Submit[/Keyboard/enter]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -452,7 +440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208f02a319c19e04490fe1693964c44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterController2D: {fileID: 0}
 --- !u!1 &208483706
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +781,7 @@ Transform:
   m_GameObject: {fileID: 739842350}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 2.16, z: -10}
+  m_LocalPosition: {x: 6.89, y: 7.97, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1383,7 +1370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualCue: {fileID: 2065215001}
-  InkJSON: {fileID: 0}
+  inkJson: {fileID: 0}
 --- !u!1 &1775161070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,11 +1695,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 816825830963672287, guid: e7400158ca490e94e8a55f24c1488ccf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.15
+      value: 6.89
       objectReference: {fileID: 0}
     - target: {fileID: 816825830963672287, guid: e7400158ca490e94e8a55f24c1488ccf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.16
+      value: 5.97
       objectReference: {fileID: 0}
     - target: {fileID: 816825830963672287, guid: e7400158ca490e94e8a55f24c1488ccf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1796,7 +1783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6321762329782449980, guid: e7400158ca490e94e8a55f24c1488ccf, type: 3}
       propertyPath: m_Constraints
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6321762329782449980, guid: e7400158ca490e94e8a55f24c1488ccf, type: 3}
       propertyPath: m_CollisionDetection
@@ -1860,14 +1847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e54b057502b3e4ea2235208a10e152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  sprintSpeed: 7
-  rb: {fileID: 680462902620945208}
---- !u!50 &680462902620945208 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 6321762329782449980, guid: e7400158ca490e94e8a55f24c1488ccf, type: 3}
-  m_PrefabInstance: {fileID: 680462902620945189}
-  m_PrefabAsset: {fileID: 0}
+  runSpeed: 6
+  gravityScale: 1
 --- !u!1001 &3999634250979459582
 PrefabInstance:
   m_ObjectHideFlags: 0

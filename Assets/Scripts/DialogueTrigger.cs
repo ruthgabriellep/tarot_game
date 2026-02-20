@@ -6,23 +6,23 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private GameObject visualCue;
 
     [Header("Ink JSON")] 
-    [SerializeField] private TextAsset InkJSON;
-    private bool playerInRange;
+    [SerializeField] private TextAsset inkJson;
+    private bool _playerInRange;
 
     private void Awake()
     {
-        playerInRange = false;
+        _playerInRange = false;
         visualCue.SetActive(false);
     }
 
     private void Update()
     {
-        if (playerInRange)
+        if (_playerInRange)
         {
             visualCue.SetActive(true);
             if (InputManager.GetInstance().GetInteractPressed())
             {
-                DialogueManager.GetInstance().EnterDialogueMode(InkJSON);
+                DialogueManager.GetInstance().EnterDialogueMode(inkJson);
             }
         }
         else
@@ -32,19 +32,19 @@ public class DialogueTrigger : MonoBehaviour
             
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D coll)
     {
-        if (collider.gameObject.tag == "Player")
+        if (coll.CompareTag("Player"))
         {
-            playerInRange = true;
+            _playerInRange = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collider)
+    private void OnTriggerExit2D(Collider2D coll)
     {
-        if (collider.gameObject.tag == "Player")
+        if (coll.CompareTag("Player"))
         {
-            playerInRange = false;
+            _playerInRange = false;
         }
     }
 }
