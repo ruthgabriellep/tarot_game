@@ -17,7 +17,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (_playerInRange)
+        if (_playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
             visualCue.SetActive(true);
             if (InputManager.GetInstance().GetInteractPressed())

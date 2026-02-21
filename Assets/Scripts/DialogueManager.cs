@@ -12,7 +12,7 @@ public class DialogueManager : MonoBehaviour
 
         private Story _currentStory;
 
-        public bool dialogueIsPlaying;
+        public bool dialogueIsPlaying { get; private set; }
 
         private static DialogueManager _instance;
 
