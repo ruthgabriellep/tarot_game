@@ -1463,6 +1463,7 @@ MonoBehaviour:
   choices:
   - {fileID: 22900360}
   - {fileID: 1356650011}
+  inkJSON: {fileID: 4900000, guid: 369aace3a1b04e74bbf08e425b3f1adc, type: 3}
 --- !u!1 &1356650011
 GameObject:
   m_ObjectHideFlags: 0

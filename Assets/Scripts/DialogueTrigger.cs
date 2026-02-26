@@ -23,6 +23,7 @@ public class DialogueTrigger : MonoBehaviour
             if (InputManager.GetInstance().GetInteractPressed())
             {
                 DialogueManager.GetInstance().EnterDialogueMode(inkJson);
+                Debug.Log("Entered dialogue mode");
             }
         }
         else
@@ -37,6 +38,7 @@ public class DialogueTrigger : MonoBehaviour
         if (coll.CompareTag("Player"))
         {
             _playerInRange = true;
+            Debug.Log("Triggered");
         }
     }
 

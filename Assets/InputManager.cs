@@ -41,6 +41,7 @@ public class InputManager : MonoBehaviour
         if (context.performed)
         {
             _interactPressed = true;
+            Debug.Log("Interact triggered");
         }
         else if (context.canceled)
         {
@@ -54,6 +55,7 @@ public class InputManager : MonoBehaviour
         if (context.performed)
         { 
             _submitPressed = true;
+            Debug.Log("Submit triggered");
         }
         else if (context.canceled)
         {
