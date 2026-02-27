@@ -5,7 +5,7 @@ public class InputManager : MonoBehaviour
 {
     private Vector2 _moveDirection = Vector2.zero;
     private bool _jumpPressed;
-    private bool _interactPressed;
+    private bool _interactButtonPressed;
     private bool _submitPressed;
 
     private static InputManager _instance;
@@ -52,12 +52,12 @@ public class InputManager : MonoBehaviour
     {
         if (context.performed)
         {
-            _interactPressed = true;
+            _interactButtonPressed = true;
             Debug.Log("Interact pressed");
         }
         else if (context.canceled)
         {
-            _interactPressed = false;
+            _interactButtonPressed = false;
         } 
     }
 
@@ -88,8 +88,8 @@ public class InputManager : MonoBehaviour
 
     public bool GetInteractPressed() 
     {
-        bool result = _interactPressed;
-        _interactPressed = false;
+        bool result = _interactButtonPressed;
+        _interactButtonPressed = false;
         return result;
     }
 

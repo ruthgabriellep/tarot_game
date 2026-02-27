@@ -6,7 +6,7 @@ public class CharacterController2D : MonoBehaviour
     [Header("Movement Params")]
     public float runSpeed = 6.0f;
     public float jumpSpeed = 8.0f;
-    public float gravityScale = 20.0f;
+    public float gravityScale = 10.0f;
     
     private BoxCollider2D _coll;
     private Rigidbody2D _rb;
