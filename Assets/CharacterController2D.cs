@@ -27,7 +27,7 @@ public class CharacterController2D : MonoBehaviour
         {
             return;
         }
-
+        
         UpdateIsGrounded();
 
         HandleHorizontalMovement();
