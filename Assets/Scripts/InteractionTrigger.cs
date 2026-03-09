@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class InteractionTrigger : MonoBehaviour
@@ -6,19 +5,19 @@ public class InteractionTrigger : MonoBehaviour
     [Header("Interact Icon")] 
     [SerializeField] private GameObject interactIcon;
 
-    private bool _playerInRange;
+    public bool interactableInRange;
 
     private void Awake()
     {
-        _playerInRange = false;
+        interactableInRange = false;
         interactIcon.SetActive(false);
     }
 
     private void Update()
     {
 
-        if (_playerInRange && !InputManager.GetInstance().GetInteractPressed())
-        {
+        if (interactableInRange)
+        { 
             interactIcon.SetActive(true);
             if (InputManager.GetInstance().GetInteractPressed())
             {
@@ -35,18 +34,23 @@ public class InteractionTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.CompareTag("Player"))
+        if (coll.CompareTag("Interactable"))
         {
-            _playerInRange = true;
+            interactableInRange = true;
+            interactIcon.SetActive(true);
             Debug.Log("Triggered");
+
+            CardTrigger.GetInstance().canShowCard = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D coll)
     {
-        if (coll.CompareTag("Player"))
+        if (coll.CompareTag("Interactable"))
         {
-            _playerInRange = false;
+            interactableInRange = false;
+
+            CardTrigger.GetInstance().canShowCard = false;
         }
     }
 }

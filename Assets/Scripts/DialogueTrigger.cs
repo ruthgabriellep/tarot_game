@@ -20,7 +20,7 @@ public class DialogueTrigger : MonoBehaviour
         if (_playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
             visualCue.SetActive(true);
-            if (InputManager.GetInstance().GetInteractPressed())
+            if (_playerInRange && InputManager.GetInstance().GetInteractPressed())
             {
                 DialogueManager.GetInstance().EnterDialogueMode(inkJson);
                 Debug.Log("Entered dialogue mode");

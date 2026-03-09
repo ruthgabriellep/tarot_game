@@ -1662,6 +1662,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443641084}
   m_CullTransparentMesh: 1
+--- !u!1 &1476506994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1476506995}
+  - component: {fileID: 1476506996}
+  m_Layer: 7
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1476506995
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476506994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2038921568}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1476506996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476506994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5cded55e84cd44b8e758d88e5d74b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 1612259408}
+  itemBackground: {fileID: 2084615794}
+  cardIsShowing: 0
 --- !u!1 &1562701035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,7 +2121,6 @@ GameObject:
   - component: {fileID: 2038921572}
   - component: {fileID: 2038921571}
   - component: {fileID: 2038921570}
-  - component: {fileID: 2038921569}
   m_Layer: 7
   m_Name: CardPopup
   m_TagString: Interactable
@@ -2092,6 +2142,7 @@ RectTransform:
   m_Children:
   - {fileID: 2084615795}
   - {fileID: 1612259409}
+  - {fileID: 1476506995}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2099,21 +2150,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2038921569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038921567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c5cded55e84cd44b8e758d88e5d74b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  card: {fileID: 1612259408}
-  itemBackground: {fileID: 2084615794}
-  cardIsShowing: 0
 --- !u!114 &2038921570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2433,6 +2469,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 45442559475119042, guid: a0d5d5db28905794a89ccbeb87fd06ba, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5808240903879539876, guid: a0d5d5db28905794a89ccbeb87fd06ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.56
@@ -2473,9 +2513,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7181206900714297095, guid: a0d5d5db28905794a89ccbeb87fd06ba, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518047966488651017, guid: a0d5d5db28905794a89ccbeb87fd06ba, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8690741922592894556, guid: a0d5d5db28905794a89ccbeb87fd06ba, type: 3}
       propertyPath: m_Name
       value: Magician NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 8690741922592894556, guid: a0d5d5db28905794a89ccbeb87fd06ba, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

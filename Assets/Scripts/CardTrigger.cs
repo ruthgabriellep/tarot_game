@@ -8,7 +8,7 @@ public class CardTrigger : MonoBehaviour
 
     public bool cardIsShowing;
 
-    private bool _interactableInRange;
+    public bool canShowCard;
 
     private static CardTrigger _instance;
 
@@ -16,48 +16,45 @@ public class CardTrigger : MonoBehaviour
     {
         return _instance;
     }
-   
+
     private void Awake()
     {
-        _interactableInRange = false; 
         cardIsShowing = false;
         card.SetActive(false);
         itemBackground.SetActive(false);
         _instance = this;
 
     }
-   
+
     private void Update()
     {
-        if (_interactableInRange && !InputManager.GetInstance().GetInteractPressed())
+        if (canShowCard && InputManager.GetInstance().GetInteractPressed())
         {
-            Debug.Log("Card is showing");
             EnterCardIsShowing();
+            Debug.Log("Card is showing");
         }
         else
         {
             StartCoroutine(ExitCardIsShowing());
         }
     }
-   
+
     public void EnterCardIsShowing()
     {
-        
+
         cardIsShowing = true;
         card.SetActive(true);
         itemBackground.SetActive(true);
 
     }
-   
-    public IEnumerator ExitCardIsShowing()
-    {
-        yield return new WaitForSecondsRealtime(10f);
 
-        _interactableInRange = false;
+    private IEnumerator ExitCardIsShowing()
+    {
+        yield return new WaitForSecondsRealtime(6f);
+
         cardIsShowing = false;
         card.SetActive(false);
         itemBackground.SetActive(false);
-      
+
     }
-   
 }
