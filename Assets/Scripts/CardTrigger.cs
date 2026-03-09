@@ -34,9 +34,10 @@ public class CardTrigger : MonoBehaviour
    
    private void EnterCardIsShowing()
    {
-         cardIsShowing = true;
-         card.SetActive(true);
-         itemBackground.SetActive(true);
+      
+      cardIsShowing = true;
+      card.SetActive(true);
+      itemBackground.SetActive(true);
 
    }
    
@@ -47,7 +48,7 @@ public class CardTrigger : MonoBehaviour
       cardIsShowing = false;
       card.SetActive(false);
       itemBackground.SetActive(false);
-      
+
    }
    
 }

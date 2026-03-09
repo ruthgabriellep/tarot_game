@@ -6,15 +6,12 @@ public class InteractionTrigger : MonoBehaviour
     [Header("Interact Icon")] 
     [SerializeField] private GameObject interactIcon;
 
-    [SerializeField] private GameObject cardPopup;
-
     private bool _playerInRange;
 
     private void Awake()
     {
         _playerInRange = false;
         interactIcon.SetActive(false);
-        cardPopup.SetActive(false);
     }
 
     private void Update()
@@ -25,8 +22,10 @@ public class InteractionTrigger : MonoBehaviour
             interactIcon.SetActive(true);
             if (InputManager.GetInstance().GetInteractPressed())
             {
+                
                 Debug.Log("Interact icon triggered");
             }
+            
         }
         else
         {
