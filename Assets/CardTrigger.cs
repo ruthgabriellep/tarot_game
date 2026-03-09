@@ -7,12 +7,9 @@ public class CardTrigger : MonoBehaviour
    [SerializeField] private GameObject itemBackground;
    
    public bool cardIsShowing;
-
-   private bool _interactableInRange;
    
    private void Awake()
    {
-      _interactableInRange = false; 
       cardIsShowing = false;
       card.SetActive(false);
       itemBackground.SetActive(false);
@@ -21,7 +18,7 @@ public class CardTrigger : MonoBehaviour
    
    private void Update()
    {
-      if (_interactableInRange && !InputManager.GetInstance().GetInteractPressed())
+      if (InputManager.GetInstance().GetInteractPressed())
       {
          EnterCardIsShowing();
          Debug.Log("Card is showing");
@@ -43,7 +40,7 @@ public class CardTrigger : MonoBehaviour
    
    private IEnumerator ExitCardIsShowing()
    {
-      yield return new WaitForSecondsRealtime(10f);
+      yield return new WaitForSecondsRealtime(6f);
       
       cardIsShowing = false;
       card.SetActive(false);
