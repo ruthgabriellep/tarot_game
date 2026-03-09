@@ -22,7 +22,7 @@ public class InteractionTrigger : MonoBehaviour
             interactIcon.SetActive(true);
             if (InputManager.GetInstance().GetInteractPressed())
             {
-                
+                CardTrigger.GetInstance().EnterCardIsShowing();
                 Debug.Log("Interact icon triggered");
             }
             
