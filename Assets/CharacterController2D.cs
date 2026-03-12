@@ -4,7 +4,7 @@ public class CharacterController2D : MonoBehaviour
 {
 
     [Header("Movement Params")]
-    public float runSpeed = 6.0f;
+    [SerializeField] private float runSpeed = 6.0f;
     public float jumpSpeed = 8.0f;
     public float gravityScale = 10.0f;
     
@@ -61,6 +61,16 @@ public class CharacterController2D : MonoBehaviour
     {
         Vector2 moveDirection = InputManager.GetInstance().GetMoveDirection();
         _rb.linearVelocity = new Vector2(moveDirection.x * runSpeed, _rb.linearVelocity.y);
+
+        if (moveDirection.x > 0f)
+        { 
+            transform.localScale = new Vector2(0.397122025f, 0.397122025f);
+        }
+        else if (moveDirection.x < 0f)
+        {
+            transform.localScale = new Vector2(-0.397122025f, 0.397122025f);
+        }
+        
     }
 
     private void HandleJumping()

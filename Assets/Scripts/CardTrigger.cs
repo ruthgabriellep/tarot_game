@@ -6,7 +6,7 @@ public class CardTrigger : MonoBehaviour
     [SerializeField] private GameObject card;
     [SerializeField] private GameObject itemBackground;
 
-    public bool cardIsShowing { get; private set; }
+    public bool cardIsShowing;
 
     public bool canShowCard;
 

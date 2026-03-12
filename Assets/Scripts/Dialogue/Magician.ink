@@ -7,10 +7,10 @@ Who might you be?
 Don't you know it's rude not to knock?
 
 *[Nod]
-You nod
+I suppose you were just following that dog. 
 -> Nod
 
-*[Say nothing]
+*[...]
 ...
 -> Nod
 
@@ -19,14 +19,18 @@ Hm...
 
 Cat got your tongue? 
 
-Since you're here, why not do me favour?
+Since you're here, why not do me a favour?
 
-I need your help finding something.
+I need you to find something for me.
 
-I lost my Magician card somewhere in this room...
+I lost my Magician card somewhere in this room.
 
-You know what? If you find it, you can keep it. 
+I think I last saw it on my bookshelf. 
 
-As thanks from me!
+And to express my gratitude,
+
+once you find it, you can keep it. 
+
+
 
 -> END
