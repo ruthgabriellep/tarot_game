@@ -1,108 +1,30 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInput))]
 public class InputManager : MonoBehaviour
 {
-    private Vector2 _moveDirection = Vector2.zero;
-    private bool _jumpPressed;
-    private bool _interactButtonPressed;
-    private bool _submitPressed;
-
-    private static InputManager _instance;
-
-    private void Awake()
-    {
-        if (_instance != null)
-        {
-            Debug.LogError("Found more than one Input Manager in the scene.");
-        }
-        _instance = this;
-    }
-
-    public static InputManager GetInstance() 
-    {
-        return _instance;
-    }
-
     public void MovePressed(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed || context.canceled)
         {
-            _moveDirection = context.ReadValue<Vector2>();
+            GameEventsManager.instance.inputEvents.MovePressed(context.ReadValue<Vector2>());
         }
-        else if (context.canceled)
-        {
-            _moveDirection = context.ReadValue<Vector2>();
-        } 
-    }
-
-    public void JumpPressed(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            _jumpPressed = true;
-        }
-        else if (context.canceled)
-        {
-            _jumpPressed = false;
-        }
-    }
-
-    public void InteractButtonPressed(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            _interactButtonPressed = true;
-            Debug.Log("Interact pressed");
-        }
-        else if (context.canceled)
-        {
-            _interactButtonPressed = false;
-        } 
     }
 
     public void SubmitPressed(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
-            _submitPressed = true;
-            Debug.Log("Submit pressed");
+            GameEventsManager.instance.inputEvents.SubmitPressed();
         }
-        else if (context.canceled)
+    }
+
+    public void QuestLogTogglePressed(InputAction.CallbackContext context)
+    {
+        if (context.started)
         {
-            _submitPressed = false;
-        } 
+            GameEventsManager.instance.inputEvents.QuestLogTogglePressed();
+        }
     }
-
-    public Vector2 GetMoveDirection() 
-    {
-        return _moveDirection;
-    }
-
-    public bool GetJumpPressed() 
-    {
-        bool result = _jumpPressed;
-        _jumpPressed = false;
-        return result;
-    }
-
-    public bool GetInteractPressed() 
-    {
-        bool result = _interactButtonPressed;
-        _interactButtonPressed = false;
-        return result;
-    }
-
-    public bool GetSubmitPressed() 
-    {
-        bool result = _submitPressed;
-        _submitPressed = false;
-        return result;
-    }
-
-    public void RegisterSubmitPressed() 
-    {
-        _submitPressed = false;
-    }
-
 }
