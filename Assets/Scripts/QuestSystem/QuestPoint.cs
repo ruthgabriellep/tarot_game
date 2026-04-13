@@ -5,6 +5,8 @@ namespace QuestSystem
     [RequireComponent(typeof(CircleCollider2D))]
     public class QuestPoint : MonoBehaviour
     {
+        [Header("Dialogue")] [SerializeField] private string dialogueKnotName;
+        
         [Header("Quest")] [SerializeField] private QuestInfoSO questInfoForPoint;
 
         [Header("Config")] [SerializeField] private bool startPoint = true;
@@ -36,20 +38,27 @@ namespace QuestSystem
             GameEventsManager.instance.inputEvents.onSubmitPressed -= SubmitPressed;
         }
 
-        private void SubmitPressed(InputEventContext context)
+        private void SubmitPressed(InputEventContext inputEventContext)
         {
-            if (!_playerIsNear)
+            if (!_playerIsNear || !inputEventContext.Equals(InputEventContext.DEFAULT))
             {
                 return;
             }
 
-            if (_currentQuestState.Equals(QuestState.CAN_START) && startPoint)
+            if (!dialogueKnotName.Equals(""))
             {
-                GameEventsManager.instance.questEvents.StartQuest(_questId);
+                GameEventsManager.instance.dialogueEvents.EnterDialogue(dialogueKnotName);
             }
-            else if (_currentQuestState.Equals(QuestState.CAN_FINISH) && finishPoint)
+            else
             {
-                GameEventsManager.instance.questEvents.FinishQuest(_questId);
+                if (_currentQuestState.Equals(QuestState.CAN_START) && startPoint)
+                {
+                    GameEventsManager.instance.questEvents.StartQuest(_questId);
+                }
+                else if (_currentQuestState.Equals(QuestState.CAN_FINISH) && finishPoint)
+                {
+                    GameEventsManager.instance.questEvents.FinishQuest(_questId);
+                }
             }
 
         }
