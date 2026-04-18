@@ -1,25 +1,17 @@
-using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(CircleCollider2D))]
-public class Card : MonoBehaviour
-{ 
-    [Header("Config")]
-    [SerializeField] private int deckGained = 1;
-
+public class Door : MonoBehaviour
+{
     [Header("Visual Cue")] [SerializeField]
     private GameObject visualCue;
 
-    private CircleCollider2D _circleCollider;
+    private BoxCollider2D _boxCollider;
     private SpriteRenderer _visual;
 
     private bool playerInRange;
-    
 
     private void Awake() 
     {
-        _circleCollider = GetComponent<CircleCollider2D>();
-        _visual = GetComponentInChildren<SpriteRenderer>();
         visualCue.SetActive(false);
         playerInRange = false;
     }
@@ -27,20 +19,9 @@ public class Card : MonoBehaviour
     private void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
-        { 
-            CollectCard();
+        {
+            // OpenDoor();
         }
-    }
-        
-    private void CollectCard() 
-    {
-       
-        _circleCollider.enabled = false;
-        _visual.gameObject.SetActive(false);
-        visualCue.SetActive(false);
-        
-        GameEventsManager.instance.deckEvents.DeckGained(deckGained);
-        GameEventsManager.instance.miscEvents.CardCollected();
     }
     
     private void OnTriggerEnter2D(Collider2D otherCollider) 
