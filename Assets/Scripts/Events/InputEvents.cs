@@ -30,13 +30,13 @@ public class InputEvents
         }
     }
 
-    // public event Action onQuestLogTogglePressed;
-    //
-    // public void QuestLogTogglePressed()
-    // {
-    //     if (onQuestLogTogglePressed != null)
-    //     {
-    //         onQuestLogTogglePressed();
-    //     }
-    // }
+    public event Action onInteractPressed;
+    
+    public void InteractPressed()
+    {
+        if (onInteractPressed != null)
+        {
+            onInteractPressed();
+        }
+    }
 }

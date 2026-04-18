@@ -9,6 +9,12 @@ namespace QuestSystem
         
         [Header("Quest")] [SerializeField] private QuestInfoSO questInfoForPoint;
 
+        [Header("Parameters")] [SerializeField] private GameObject barrier;
+        
+        [Header("Objectives")]
+        [SerializeField] private GameObject objective1;
+        [SerializeField] private GameObject objective2;
+
         [Header("Config")] [SerializeField] private bool startPoint = true;
         [SerializeField] private bool finishPoint = true;
 
@@ -24,6 +30,43 @@ namespace QuestSystem
         {
             _questId = questInfoForPoint.id;
             _questIcon = GetComponentInChildren<QuestIcon>();
+        }
+
+        private void Start()
+        {
+            barrier.SetActive(true); 
+            objective1.SetActive(false);
+            objective2.SetActive(false);
+        }
+
+        private void Update()
+        {
+            if (!_currentQuestState.Equals(QuestState.CAN_START))
+            {
+                barrier.SetActive(false);
+            }
+
+            if (_currentQuestState.Equals(QuestState.IN_PROGRESS))
+            {
+                objective2.SetActive(true);
+                objective1.SetActive(false);
+            }
+
+            if (_currentQuestState.Equals(QuestState.CAN_START))
+            {
+                objective1.SetActive(true);
+            }
+
+            if (_currentQuestState.Equals(QuestState.CAN_FINISH))
+            {
+                objective2.SetActive(false);
+                objective1.SetActive(true);
+            }
+
+            if (_currentQuestState.Equals(QuestState.FINISHED))
+            {
+                objective1.SetActive(false);
+            }
         }
 
         private void OnEnable()
@@ -87,5 +130,6 @@ namespace QuestSystem
                 _playerIsNear = false;
             }
         }
+
     }
 }
