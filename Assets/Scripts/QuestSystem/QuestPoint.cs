@@ -9,7 +9,8 @@ namespace QuestSystem
         
         [Header("Quest")] [SerializeField] private QuestInfoSO questInfoForPoint;
 
-        [Header("Parameters")] [SerializeField] private GameObject barrier;
+        [Header("Parameters")] [SerializeField] private GameObject barrier1;
+        [SerializeField] private GameObject barrier2;
         
         [Header("Objectives")]
         [SerializeField] private GameObject objective1;
@@ -34,7 +35,8 @@ namespace QuestSystem
 
         private void Start()
         {
-            barrier.SetActive(true); 
+            barrier1.SetActive(true); 
+            barrier2.SetActive(true);
             objective1.SetActive(false);
             objective2.SetActive(false);
         }
@@ -43,7 +45,7 @@ namespace QuestSystem
         {
             if (!_currentQuestState.Equals(QuestState.CAN_START))
             {
-                barrier.SetActive(false);
+                barrier1.SetActive(false);
             }
 
             if (_currentQuestState.Equals(QuestState.IN_PROGRESS))
@@ -66,6 +68,7 @@ namespace QuestSystem
             if (_currentQuestState.Equals(QuestState.FINISHED))
             {
                 objective1.SetActive(false);
+                barrier2.SetActive(false);
             }
         }
 

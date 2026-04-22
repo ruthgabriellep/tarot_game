@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -12,6 +12,13 @@ public class DialoguePanelUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
 
     [SerializeField] private DialogueChoiceButton[] choiceButtons;
+    
+    [SerializeField] private float typingSpeed = 0.02f;
+
+    private Coroutine typingCoroutine;
+    private bool isTyping;
+    private string currentLine;
+    private List<Choice> currentChoices;
 
     private void Awake()
     {
@@ -47,13 +54,71 @@ public class DialoguePanelUI : MonoBehaviour
 
     private void DisplayDialogue(string dialogueLine, List<Choice> dialogueChoices)
     {
-        dialogueText.text = dialogueLine;
+        // dialogueText.text = dialogueLine;
+        
+        currentLine = dialogueLine;
+        currentChoices = dialogueChoices;
 
+        foreach (DialogueChoiceButton choiceButton in choiceButtons)
+        {
+            choiceButton.gameObject.SetActive(false);
+        }
+
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+
+        typingCoroutine = StartCoroutine(TypeLine(dialogueLine));
+    }
+    
+    private IEnumerator TypeLine(string line)
+    {
+        isTyping = true;
+        dialogueText.text = "";
+
+        foreach (char c in line)
+        {
+            dialogueText.text += c;
+            
+            float delay = typingSpeed;
+
+            if (c == '.' || c == ',' || c == '!' || c == '?')
+            {
+                delay *= 3f;
+            }
+            
+            yield return new WaitForSeconds(delay);
+        }
+
+        isTyping = false;
+
+        DisplayChoices(currentChoices);
+    }
+    
+    public bool IsTyping()
+    {
+        return isTyping;
+    }
+
+    public void CompleteTyping()
+    {
+        if (!isTyping) return;
+
+        StopCoroutine(typingCoroutine);
+        dialogueText.text = currentLine;
+        isTyping = false;
+
+        DisplayChoices(currentChoices);
+    }
+
+    private void DisplayChoices(List<Choice> dialogueChoices)
+    {
         if (dialogueChoices.Count > choiceButtons.Length)
         {
             Debug.LogError("More dialogue choices ("
-                + dialogueChoices.Count + ") came through than are supported ("
-                + choiceButtons.Length + ").");
+                           + dialogueChoices.Count + ") came through than are supported ("
+                           + choiceButtons.Length + ").");
         }
 
         foreach (DialogueChoiceButton choiceButton in choiceButtons)
@@ -80,7 +145,7 @@ public class DialoguePanelUI : MonoBehaviour
             choiceButtonIndex--;
         }
     }
-
+    
     private void ResetPanel()
     {
         dialogueText.text = "";
