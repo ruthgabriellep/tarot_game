@@ -53,9 +53,12 @@ I know, I know- no need to thank me.
 
 = finished
 Uh... Did you want to help me with something else?
-You've done everything I need, so you can be on your way.
 Maybe try next door. 
 Not much for conversation, that one… always so mysterious.
+You'll have to find your own way to get there. 
+The water's unpredictable - my boat broke but I haven't been bothered to fix it yet.
+So, unless you manage to fix her up, I guess you can't get over there, kid.
+
 -> END
 
 === answer ===

@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
+using System.Net.Mime;
 using TMPro;
 using UnityEngine;
 using Ink.Runtime;
-using UnityEngine.AI;
+using UnityEditor;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class DialogueManager : MonoBehaviour
     private InkExternalFunctions inkExternalFunctions;
 
     private InkDialogueVariables inkDialogueVariables;
+
+    [SerializeField] private DialoguePanelUI dialogueUI;
 
     private void Awake()
     {
@@ -68,12 +72,26 @@ public class DialogueManager : MonoBehaviour
 
     private void SubmitPressed(InputEventContext inputEventContext)
     {
+        // if (!inputEventContext.Equals(InputEventContext.DIALOGUE))
+        // {
+        //     return;
+        // }
+        //
+        // ContinueOrExitStory();
+        
         if (!inputEventContext.Equals(InputEventContext.DIALOGUE))
         {
             return;
         }
-        
-        ContinueOrExitStory();
+
+        if (dialogueUI.IsTyping())
+        {
+            dialogueUI.CompleteTyping();
+        }
+        else
+        {
+            ContinueOrExitStory();
+        }
         
     }
 
@@ -131,14 +149,14 @@ public class DialogueManager : MonoBehaviour
                 GameEventsManager.instance.dialogueEvents.DisplayDialogue(dialogueLine, story.currentChoices);
             }
             
-            GameEventsManager.instance.dialogueEvents.DisplayDialogue(dialogueLine, story.currentChoices);
+            // GameEventsManager.instance.dialogueEvents.DisplayDialogue(dialogueLine, story.currentChoices);
         }
         else if (story.currentChoices.Count == 0)
         {
             ExitDialogue();
         }
     }
-
+    
     private void ExitDialogue()
     {
         dialoguePlaying = false;

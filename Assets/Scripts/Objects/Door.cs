@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
@@ -20,8 +21,14 @@ public class Door : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            // OpenDoor();
+            Debug.Log("Change Scene");
+            ChangeSceneToLevel();
         }
+    }
+
+    void ChangeSceneToLevel()
+    {
+        SceneManager.LoadScene("Coast_Transition_Level");
     }
     
     private void OnTriggerEnter2D(Collider2D otherCollider) 
