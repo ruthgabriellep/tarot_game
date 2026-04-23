@@ -4201,7 +4201,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 857a8c8b11752b642883ab5636dc0350, type: 3}
   m_Color: {r: 0.6301887, g: 0.6301887, b: 0.6301887, a: 1}
   m_FlipX: 0
@@ -4790,7 +4790,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueKnotName: Magician_Start
   questInfoForPoint: {fileID: 11400000, guid: 2063e4508e746ca45a2d1c961cd54757, type: 2}
-  barrier: {fileID: 2030396553}
+  barrier1: {fileID: 0}
+  barrier2: {fileID: 0}
   objective1: {fileID: 332761843}
   objective2: {fileID: 16229360}
   startPoint: 1

@@ -1811,7 +1811,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1365388202495975958, guid: ed3d392e110c08f4eabd73b92a641e16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.84
+      value: -20.14
       objectReference: {fileID: 0}
     - target: {fileID: 1365388202495975958, guid: ed3d392e110c08f4eabd73b92a641e16, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1909,11 +1909,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1365388202495975958, guid: ed3d392e110c08f4eabd73b92a641e16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.35
+      value: -33.26
       objectReference: {fileID: 0}
     - target: {fileID: 1365388202495975958, guid: ed3d392e110c08f4eabd73b92a641e16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.27
+      value: -13.53
       objectReference: {fileID: 0}
     - target: {fileID: 1365388202495975958, guid: ed3d392e110c08f4eabd73b92a641e16, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5357,7 +5357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueKnotName: Magician_Start
   questInfoForPoint: {fileID: 11400000, guid: 2063e4508e746ca45a2d1c961cd54757, type: 2}
-  barrier: {fileID: 0}
+  barrier1: {fileID: 0}
+  barrier2: {fileID: 0}
   objective1: {fileID: 332761843}
   objective2: {fileID: 16229360}
   startPoint: 1
@@ -5827,6 +5828,7 @@ MonoBehaviour:
   canStartIcon: {fileID: 466064537}
   requirementsNotMetToFinishIcon: {fileID: 20230806}
   canFinishIcon: {fileID: 1780189176}
+  finishedIcon: {fileID: 0}
 --- !u!1 &2071053531
 GameObject:
   m_ObjectHideFlags: 0

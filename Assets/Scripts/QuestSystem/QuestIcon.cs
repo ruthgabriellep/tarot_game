@@ -12,12 +12,15 @@ namespace QuestSystem
 
         [SerializeField] private GameObject canFinishIcon;
 
+        [SerializeField] private GameObject finishedIcon;
+
         public void SetState(QuestState newState, bool startPoint, bool finishPoint)
         {
             requirementsNotMetToStartIcon.SetActive(false);
             canStartIcon.SetActive(false);
             requirementsNotMetToFinishIcon.SetActive(false);
             canFinishIcon.SetActive(false);
+            finishedIcon.SetActive(false);
 
             switch (newState)
             {
@@ -50,7 +53,12 @@ namespace QuestSystem
 
                     break;
                 case QuestState.FINISHED:
-                    break;
+                    if (finishPoint)
+                    {
+                        finishedIcon.SetActive(true);
+                    }
+
+                    break; 
                 default:
                     Debug.LogWarning("Quest State not recognized by switch statemnet for quest icon: " + newState);
                     break;
