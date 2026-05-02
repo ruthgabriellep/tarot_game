@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa42f68eff8815841bcb15dbe3386bdb, type: 3}
+  m_Name: InspectPaintingQuest
+  m_EditorClassIdentifier: 
+  <id>k__BackingField: InspectPaintingQuest
+  displayName: Inspect The Painting!
+  levelRequirement: 0
+  questPrerequisites: []
+  questStepPrefabs:
+  - {fileID: 8478484542960851271, guid: 14d697ebba36a194cbf120c888fd9362, type: 3}
+  cardReward: 1

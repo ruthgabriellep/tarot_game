@@ -10,7 +10,6 @@ namespace QuestSystem
         [Header("Quest")] [SerializeField] private QuestInfoSO questInfoForPoint;
 
         [Header("Parameters")] [SerializeField] private GameObject barrier1;
-        [SerializeField] private GameObject barrier2;
         
         [Header("Objectives")]
         [SerializeField] private GameObject objective1;
@@ -18,6 +17,9 @@ namespace QuestSystem
 
         [Header("Config")] [SerializeField] private bool startPoint = true;
         [SerializeField] private bool finishPoint = true;
+
+        [Header("Visual Cue")] [SerializeField]
+        private GameObject visualCue;
 
         private bool _playerIsNear;
 
@@ -36,9 +38,9 @@ namespace QuestSystem
         private void Start()
         {
             barrier1.SetActive(true); 
-            barrier2.SetActive(true);
             objective1.SetActive(false);
             objective2.SetActive(false);
+            visualCue.SetActive(false);
         }
 
         private void Update()
@@ -54,11 +56,6 @@ namespace QuestSystem
                 objective1.SetActive(false);
             }
 
-            if (_currentQuestState.Equals(QuestState.CAN_START))
-            {
-                objective1.SetActive(true);
-            }
-
             if (_currentQuestState.Equals(QuestState.CAN_FINISH))
             {
                 objective2.SetActive(false);
@@ -68,7 +65,6 @@ namespace QuestSystem
             if (_currentQuestState.Equals(QuestState.FINISHED))
             {
                 objective1.SetActive(false);
-                barrier2.SetActive(false);
             }
         }
 
@@ -123,6 +119,13 @@ namespace QuestSystem
             if (otherCollider.CompareTag("Player"))
             {
                 _playerIsNear = true;
+                visualCue.SetActive(true);
+            }
+
+            if (_currentQuestState == QuestState.CAN_START)
+            {
+                visualCue.SetActive(false);
+                GameEventsManager.instance.dialogueEvents.EnterDialogue(dialogueKnotName);
             }
         }
 
@@ -131,6 +134,7 @@ namespace QuestSystem
             if (otherCollider.CompareTag("Player"))
             {
                 _playerIsNear = false;
+                visualCue.SetActive(false);
             }
         }
 

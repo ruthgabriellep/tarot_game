@@ -9,17 +9,17 @@ public class Tower_Door : MonoBehaviour
     private BoxCollider2D _boxCollider;
     private SpriteRenderer _visual;
 
-    private bool playerInRange;
+    private bool _playerInRange;
 
     private void Awake() 
     {
         visualCue.SetActive(false);
-        playerInRange = false;
+        _playerInRange = false;
     }
     
     private void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (_playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Change Scene");
             ChangeSceneToLevel();
@@ -35,7 +35,7 @@ public class Tower_Door : MonoBehaviour
     {
         if (otherCollider.CompareTag("Player"))
         {
-            playerInRange = true;
+            _playerInRange = true;
             visualCue.SetActive(true);
         }
     }
@@ -44,7 +44,7 @@ public class Tower_Door : MonoBehaviour
     {
         if (otherCollider.CompareTag("Player"))
         {
-            playerInRange = false;
+            _playerInRange = false;
             visualCue.SetActive(false);
         }
     }

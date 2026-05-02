@@ -1,15 +1,48 @@
--> HighPriestess_Temple
+EXTERNAL StartQuest(questId)
+EXTERNAL AdvanceQuest(questId)
+EXTERNAL FinishQuest(questId)
 
-== HighPriestess_Temple ==
+VAR InspectPaintingQuestId = "InspectPaintingQuest"
 
-Hello...
+VAR InspectPaintingQuestState = "REQUIREMENTS_NOT_MET"
 
-I was told someone was coming here...
+-> highpriestess_temple
 
+=== highpriestess_temple ===
+{ InspectPaintingQuestState : 
+- "REQUIREMENTS_NOT_MET" : -> requirementsNotMet
+- "CAN_START" : -> canStart
+- "IN_PROGRESS" : -> inProgress
+- "CAN_FINISH" : -> canFinish
+- "FINISHED" : -> finished
+- else: -> END
+}
+
+= requirementsNotMet
 ...
+-> END
 
-You seem... 
+= canStart
+Hello...
+I'm glad you made it here safely...
+It's a shame the Magician didn't chaperone you here...
+...
+You're lost... 
+* [I forgot my name]
+I see... That's alright... 
+* [I don't know why I'm here]
+* [I'm scared]
 
-lost...
 
+
+~ StartQuest("InspectPaintingQuest")
+- -> DONE
+
+= inProgress
+-> END
+
+= canFinish
+-> END
+
+= finished
 -> END
