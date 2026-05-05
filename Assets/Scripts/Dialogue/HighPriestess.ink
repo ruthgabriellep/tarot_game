@@ -1,22 +1,14 @@
-EXTERNAL StartQuest(questId)
-EXTERNAL AdvanceQuest(questId)
-EXTERNAL FinishQuest(questId)
-
-VAR InspectPaintingQuestId = "InspectPaintingQuest"
-
-VAR InspectPaintingQuestState = "REQUIREMENTS_NOT_MET"
-
 -> highpriestess_temple
 
 === highpriestess_temple ===
-{ InspectPaintingQuestState : 
-- "REQUIREMENTS_NOT_MET" : -> requirementsNotMet
-- "CAN_START" : -> canStart
-- "IN_PROGRESS" : -> inProgress
-- "CAN_FINISH" : -> canFinish
-- "FINISHED" : -> finished
-- else: -> END
-}
+//{ InspectPaintingQuestState : 
+//- "REQUIREMENTS_NOT_MET" : -> requirementsNotMet
+//- "CAN_START" : -> canStart
+//- "IN_PROGRESS" : -> inProgress
+//- "CAN_FINISH" : -> canFinish
+//- "FINISHED" : -> finished
+//- else: -> END
+//}
 
 = requirementsNotMet
 ...
@@ -32,10 +24,7 @@ You're lost...
 I see... That's alright... 
 * [I don't know why I'm here]
 * [I'm scared]
-
-
-
-~ StartQuest("InspectPaintingQuest")
+//~ StartQuest(InspectPaintingQuestId)
 - -> DONE
 
 = inProgress
