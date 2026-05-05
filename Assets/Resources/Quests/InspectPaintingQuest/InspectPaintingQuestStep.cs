@@ -20,13 +20,13 @@ public class InspectPaintingQuestStep : QuestStep
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            Show();
+            // Show();
             FinishQuestStep();
         }
-        else
-        {
-            GameEventsManager.instance.playerEvents.EnablePlayerMovement();
-        }
+        // else
+        // {
+        //     GameEventsManager.instance.playerEvents.EnablePlayerMovement();
+        // }
     }
     
     private void OnTriggerEnter2D(Collider2D otherCollider)
@@ -47,11 +47,11 @@ public class InspectPaintingQuestStep : QuestStep
         }
     }
     
-    private void Show()
-    {
-        paintingInspect.SetActive(true);
-        GameEventsManager.instance.playerEvents.DisablePlayerMovement();
-    }
+    // private void Show()
+    // {
+    //     paintingInspect.SetActive(true);
+    //     GameEventsManager.instance.playerEvents.DisablePlayerMovement();
+    // }
 
     protected override void SetQuestStepState(string state)
     {

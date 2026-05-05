@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <id>k__BackingField: InspectPaintingQuest
   displayName: Inspect The Painting!
-  levelRequirement: 0
+  levelRequirement: 2
   questPrerequisites: []
   questStepPrefabs:
   - {fileID: 8478484542960851271, guid: 14d697ebba36a194cbf120c888fd9362, type: 3}
