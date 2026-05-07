@@ -1,16 +1,12 @@
 using UnityEditor.Search;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Window : MonoBehaviour
 {
     [Header("Visual Cue")] [SerializeField]
     private GameObject visualCue;
-
-    [SerializeField] private GameObject windowInspect;
     
     [SerializeField] public GameObject otherUI;
-
-    // private bool isOpen;
 
     private BoxCollider2D _boxCollider;
     private SpriteRenderer _visual;
@@ -21,26 +17,17 @@ public class Window : MonoBehaviour
     {
         visualCue.SetActive(false);
         playerInRange = false;
-        windowInspect.SetActive(false);
     }
 
     private void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Showing window inspect");
-            Show();
-            otherUI.SetActive(false);
+            GameManager.Instance.savedPosition = Player.instance.transform.position;
+            GameManager.Instance.hasSavedPosition = true;
+            
+            SceneManager.LoadScene("WindowInspect");
         }
-        // else
-        // {
-        //     // if (isOpen && Input.GetKeyDown(KeyCode.E))
-        //     // {
-        //     //     Hide();
-        //     // }
-        //     
-        //     GameEventsManager.instance.playerEvents.EnablePlayerMovement();
-        // }
     }
 
     private void OnTriggerEnter2D(Collider2D otherCollider) 
@@ -60,17 +47,4 @@ public class Window : MonoBehaviour
             visualCue.SetActive(false);
         }
     }
-
-    private void Show()
-    {
-        windowInspect.SetActive(true);
-        // isOpen = true;
-        // GameEventsManager.instance.playerEvents.DisablePlayerMovement();
-    }
-
-    // private void Hide()
-    // {
-    //     windowInspect.SetActive(false);
-    //     isOpen = false;
-    // }
 }

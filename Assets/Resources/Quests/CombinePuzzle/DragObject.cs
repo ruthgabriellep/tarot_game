@@ -16,7 +16,7 @@ public class DragObject : MonoBehaviour
         objectives.SetActive(true);
     }
 
-    private void onMouseDown()
+    private void OnMouseDown()
     {
         mouseButtonReleased = false;
         offsetX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
@@ -39,8 +39,8 @@ public class DragObject : MonoBehaviour
         string thisGameObjectName;
         string collisionGameObjectName;
 
-        thisGameObjectName = gameObject.name.Substring(0, name.IndexOf("_"));
-        collisionGameObjectName = collision.gameObject.name.Substring(0, name.IndexOf("_"));
+        thisGameObjectName = gameObject.name.Substring(0, gameObject.name.IndexOf("_"));
+        collisionGameObjectName = collision.gameObject.name.Substring(0, gameObject.name.IndexOf("_"));
 
         if (mouseButtonReleased && thisGameObjectName == "Wood" && thisGameObjectName == collisionGameObjectName)
         {

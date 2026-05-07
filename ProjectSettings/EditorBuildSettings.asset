@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Coast_Puzzle_Level.unity
     guid: dedef2d1492dadf408c354b6b5fb7fa7
+  - enabled: 1
+    path: Assets/Scenes/WindowInspect.unity
+    guid: d4d27ca582ca8b24aa74a4189c54afec
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
