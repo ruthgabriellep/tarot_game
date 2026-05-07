@@ -28,7 +28,7 @@ public class Boat_Transition : MonoBehaviour
 
     void ChangeSceneToLevel()
     {
-        SceneManager.LoadScene("Coast_Transition_Level");
+        SceneManager.LoadScene("HighPriestess_Level_1");
     }
     
     private void OnTriggerEnter2D(Collider2D otherCollider) 

@@ -15,6 +15,7 @@ MonoBehaviour:
   <id>k__BackingField: RepairBoatQuest
   displayName: Repair the boat
   levelRequirement: 0
-  questPrerequisites: []
+  questPrerequisites:
+  - {fileID: 11400000, guid: 2063e4508e746ca45a2d1c961cd54757, type: 2}
   questStepPrefabs: []
   cardReward: 0
