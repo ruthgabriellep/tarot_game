@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.10000038, y: -0.6000004}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.050001144, y: -0.3000002}
+  m_SizeDelta: {x: 0.100001335, y: 0.6000004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2797926386202787177
 CanvasRenderer:
@@ -147,13 +147,14 @@ GameObject:
   - component: {fileID: 7798977918386619157}
   - component: {fileID: 4339210438337225803}
   - component: {fileID: 9080057027163862908}
+  - component: {fileID: 3262603922728039035}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7798977918386619157
 RectTransform:
   m_ObjectHideFlags: 0
@@ -170,7 +171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -189.48291, y: -207.52771}
+  m_AnchoredPosition: {x: -195, y: -126}
   m_SizeDelta: {x: 900, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4339210438337225803
@@ -272,6 +273,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3262603922728039035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2846822906681964469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a92a5d46aaa774087ecda079065096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 9080057027163862908}
+  typingSpeed: 0.05
+  buttonToDisable: {fileID: 7853752689591250412}
 --- !u!1 &3159836816149232460
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,13 +299,14 @@ GameObject:
   - component: {fileID: 8571500608810191744}
   - component: {fileID: 3487607539501213967}
   - component: {fileID: 7917582255871856683}
+  - component: {fileID: 6432811878140820607}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8571500608810191744
 RectTransform:
   m_ObjectHideFlags: 0
@@ -306,7 +323,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 85, y: -403.8}
+  m_AnchoredPosition: {x: 85, y: -320}
   m_SizeDelta: {x: 1200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3487607539501213967
@@ -408,6 +425,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6432811878140820607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159836816149232460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a92a5d46aaa774087ecda079065096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 7917582255871856683}
+  typingSpeed: 0.05
+  buttonToDisable: {fileID: 1466701715091293329}
 --- !u!1 &4356152604385216089
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7704092081950561801
 RectTransform:
   m_ObjectHideFlags: 0
@@ -781,6 +813,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 3262603922728039035}
+        m_TargetAssemblyTypeName: TypewriterEffect, Assembly-CSharp
+        m_MethodName: StartTyping
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &7689001296383686590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,7 +838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textObject: {fileID: 2846822906681964469}
-  displayTime: 3
+  displayTime: 1
 --- !u!1 &6593208196872236907
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4516791706959153539
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1132,6 +1176,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1502638218666072697}
         m_TargetAssemblyTypeName: ShowText, Assembly-CSharp
         m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 6432811878140820607}
+        m_TargetAssemblyTypeName: TypewriterEffect, Assembly-CSharp
+        m_MethodName: StartTyping
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -25,7 +25,7 @@ Your name?
 * [...]
 ... I guess that's not important.
 -> answer
-* [*Shakes head*]
+* [*Shake head*]
 Not telling me?
 -> answer
 
@@ -54,7 +54,7 @@ Well, run along now. Best not keep them waiting.
 -> END
 
 === answer ===
-Well, since you're here... why don't you me a favour?
+Well, since you're here... why don't you do me a favour?
 I need you to find something for me.
 My Magician card. 
 I seem to have misplaced it somewhere in this room.
