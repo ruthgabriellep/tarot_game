@@ -1267,12 +1267,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296688272}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10.2, z: 0}
-  m_LocalScale: {x: 2.41, y: 2.41, z: 2.41}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.39, y: 1.43, z: 9.985333}
+  m_LocalScale: {x: 0.34994242, y: 0.34994242, z: 0.34994242}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1654683056}
+  m_Father: {fileID: 1694459015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &308893255
 GameObject:
@@ -1454,7 +1454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629fd00d8ba00d84f8539a7bdd567f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadQuestState: 1
+  loadQuestState: 0
 --- !u!224 &438026362 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4619241399717359899, guid: 16f441ed76572754ebb7808da2f30d08, type: 3}
@@ -2642,6 +2642,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1116173826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1116173828}
+  - component: {fileID: 1116173827}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1116173827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116173826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2834e7d60cf7247a007c55b50f02f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasSavedPosition: 0
+  savedPosition: {x: 0, y: 0, z: 0}
+--- !u!4 &1116173828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116173826}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.682333, y: -2.555366, z: -0.065716244}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1124858718
 GameObject:
   m_ObjectHideFlags: 0
@@ -3004,7 +3050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkJson: {fileID: 4900000, guid: 409c2c57d7896a24b87545e9970e8625, type: 3}
-  dialogueUI: {fileID: 0}
+  dialogueUI: {fileID: 647755566}
 --- !u!1 &1268353346
 GameObject:
   m_ObjectHideFlags: 0
@@ -3946,8 +3992,7 @@ Transform:
   m_LocalPosition: {x: 16.18, y: -3.28, z: -0.014}
   m_LocalScale: {x: 0.14520432, y: 0.14520432, z: 0.14520432}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 296688274}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1654683057
@@ -4123,12 +4168,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueKnotName: Magician_Start
   questInfoForPoint: {fileID: 11400000, guid: 2063e4508e746ca45a2d1c961cd54757, type: 2}
-  barrier1: {fileID: 0}
+  barrier1: {fileID: 2030396553}
   objective1: {fileID: 332761843}
   objective2: {fileID: 16229360}
   startPoint: 1
   finishPoint: 1
-  visualCue: {fileID: 0}
+  visualCue: {fileID: 296688272}
 --- !u!4 &1694459015
 Transform:
   m_ObjectHideFlags: 0
@@ -4142,6 +4187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 296688274}
   - {fileID: 1514213491}
   - {fileID: 1999322882}
   m_Father: {fileID: 0}
@@ -4774,6 +4820,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 125106737}
+  - {fileID: 1116173828}
   - {fileID: 1007473178}
   - {fileID: 3999634250979459582}
   - {fileID: 739842353}
