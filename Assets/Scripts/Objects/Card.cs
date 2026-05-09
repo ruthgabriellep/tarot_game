@@ -1,9 +1,19 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class Card : MonoBehaviour
-{ 
+public class Card : MonoBehaviour, IDataPersistence
+{
+    [SerializeField] private string id;
+
+    [ContextMenu("Generate guid for id")]
+
+    private void GenerateGuid()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
+    
     [Header("Config")]
     [SerializeField] private int deckGained = 1;
 
@@ -14,6 +24,8 @@ public class Card : MonoBehaviour
     private SpriteRenderer _visual;
 
     private bool playerInRange;
+
+    private bool collected = false;
     
 
     private void Awake() 
@@ -23,12 +35,33 @@ public class Card : MonoBehaviour
         visualCue.SetActive(false);
         playerInRange = false;
     }
+
+    public void LoadData(GameData data)
+    {
+        data.cardsCollected.TryGetValue(id, out collected);
+        if (collected)
+        {
+            _visual.gameObject.SetActive(false);
+        }
+    }
+
+    public void SaveData(GameData data)
+    {
+        if (data.cardsCollected.ContainsKey(id))
+        {
+            data.cardsCollected.Remove(id);
+        }
+        data.cardsCollected.Add(id, collected);
+    }
     
     private void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
-        { 
-            CollectCard();
+        {
+            if (!collected)
+            {
+                CollectCard();
+            }
         }
     }
         

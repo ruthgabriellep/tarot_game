@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CharacterController2D : MonoBehaviour
+public class CharacterController2D : MonoBehaviour, IDataPersistence
 {
     
     [Header("Config")]
@@ -15,6 +15,16 @@ public class CharacterController2D : MonoBehaviour
     private void Awake() 
     {
         _rb = GetComponent<Rigidbody2D>();
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data.playerPosition;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.playerPosition = this.transform.position;
     }
 
     private void Start() 
