@@ -5,6 +5,8 @@ public class Tower_Door : MonoBehaviour
 {
     [Header("Visual Cue")] [SerializeField]
     private GameObject visualCue;
+    
+    [SerializeField] private Vector3 spawnPositionInNextNextScene;
 
     private BoxCollider2D _boxCollider;
     private SpriteRenderer _visual;
@@ -28,6 +30,8 @@ public class Tower_Door : MonoBehaviour
 
     void ChangeSceneToLevel()
     {
+        GameManager.Instance.savedPosition = spawnPositionInNextNextScene;
+        GameManager.Instance.hasSavedPosition = true;
         SceneManager.LoadScene("Magician_Level_1");
     }
     

@@ -56,22 +56,34 @@ public class DataPersistenceManager : MonoBehaviour
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
+    }
+
+    private void OnSceneUnloaded(Scene scene)
+    {
+        SaveGame();
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        LoadGame();
-    }
 
-    public void OnSceneUnloaded(Scene scene)
-    {
-        SaveGame();
+        if (dataPersistenceObjects == null)
+        {
+            Debug.LogError("FindAllDataPersistenceObjects returned null");
+            return;
+        }
+
+        if (scene.name == "MainMenu")
+            return;
+        
+        LoadGame();
     }
 
     public void ChangeSelectedProfileId(string newProfileId)
@@ -82,32 +94,89 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void NewGame()
     {
+        if (string.IsNullOrEmpty(selectedProfileId))
+        {
+            selectedProfileId = "profile1";
+        }
         this.gameData = new GameData();
     }
 
     public void LoadGame()
     {
+        // if (disableDataPersistence)
+        // {
+        //     return;
+        // }
+        //
+        // this.gameData = dataHandler.Load(selectedProfileId);
+        //
+        // if (this.gameData.questData == null)
+        // {
+        //     this.gameData.questData =
+        //         new SerializableDictionary<string, QuestData>();
+        // }
+        //
+        // if (this.gameData.cardsCollected == null)
+        // {
+        //     this.gameData.cardsCollected =
+        //         new SerializableDictionary<string, bool>();
+        // }
+        //
+        // if (this.gameData == null && initializeDataIfNull)
+        // {
+        //     NewGame();
+        // }
+        //
+        // if (this.gameData == null)
+        // {
+        //     Debug.Log("No data was found. A New Game needs to be started before data can be loaded.");
+        //     return;
+        // }
+        //
+        // foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+        // {
+        //     dataPersistenceObj.LoadData(gameData);
+        // }
+        
+        if (disableDataPersistence) return;
 
-        if (disableDataPersistence)
+        if (dataHandler == null)
         {
+            Debug.LogError("dataHandler is null in LoadGame");
             return;
         }
-        
-        this.gameData = dataHandler.Load(selectedProfileId);
 
-        if (this.gameData == null && initializeDataIfNull)
-        {
-            NewGame();
-        }
+        this.gameData = dataHandler.Load(selectedProfileId);
 
         if (this.gameData == null)
         {
-            Debug.Log("No data was found. A New Game needs to be started before data can be loaded.");
+            if (initializeDataIfNull)
+            {
+                Debug.Log("No data found - starting new game.");
+                NewGame();
+            }
+            else
+            {
+                Debug.Log("No data found and initializeDataIfNull is false. Aborting load.");
+                return;
+            }
+        }
+
+        if (this.gameData.questData == null)
+            this.gameData.questData = new SerializableDictionary<string, QuestData>();
+
+        if (this.gameData.cardsCollected == null)
+            this.gameData.cardsCollected = new SerializableDictionary<string, bool>();
+
+        if (dataPersistenceObjects == null)
+        {
+            Debug.LogError("dataPersistenceObjects is null in LoadGame");
             return;
         }
 
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
+            if (dataPersistenceObj == null) continue;
             dataPersistenceObj.LoadData(gameData);
         }
     }
@@ -126,6 +195,8 @@ public class DataPersistenceManager : MonoBehaviour
             return;
         }
         
+        Debug.Log("Saving to profile id: " + selectedProfileId);
+        
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
             dataPersistenceObj.SaveData(gameData);
@@ -136,10 +207,10 @@ public class DataPersistenceManager : MonoBehaviour
         dataHandler.Save(gameData, selectedProfileId);
     }
 
-    private void OnApplicationQuit()
-    {
-        SaveGame();
-    }
+    // private void OnApplicationQuit()
+    // {
+    //     SaveGame();
+    // }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {

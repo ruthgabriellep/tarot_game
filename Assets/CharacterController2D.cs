@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterController2D : MonoBehaviour, IDataPersistence
 {
@@ -19,12 +20,19 @@ public class CharacterController2D : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        this.transform.position = data.playerPosition;
+        if (GameManager.Instance != null && GameManager.Instance.hasSavedPosition)
+            return; 
+        
+        if (data.currentLevelName == SceneManager.GetActiveScene().name)
+        {
+            this.transform.position = data.playerPosition.ToVector3();
+        }
     }
 
     public void SaveData(GameData data)
     {
-        data.playerPosition = this.transform.position;
+        data.playerPosition = new SerializableVector3(this.transform.position);
+        data.currentLevelName = SceneManager.GetActiveScene().name;
     }
 
     private void Start() 

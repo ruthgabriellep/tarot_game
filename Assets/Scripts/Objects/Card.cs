@@ -32,26 +32,36 @@ public class Card : MonoBehaviour, IDataPersistence
     {
         _circleCollider = GetComponent<CircleCollider2D>();
         _visual = GetComponentInChildren<SpriteRenderer>();
-        visualCue.SetActive(false);
+        
+        if(visualCue != null) 
+            visualCue.SetActive(false);
+        
         playerInRange = false;
     }
 
     public void LoadData(GameData data)
     {
         data.cardsCollected.TryGetValue(id, out collected);
+    
         if (collected)
         {
-            _visual.gameObject.SetActive(false);
+            if (_circleCollider != null) 
+                _circleCollider.enabled = false;
+            
+            if (_visual != null)
+                _visual.gameObject.SetActive(false);
+            
+            if (visualCue != null) 
+                visualCue.SetActive(false);
+            
+            playerInRange = false;
         }
     }
 
     public void SaveData(GameData data)
     {
-        if (data.cardsCollected.ContainsKey(id))
-        {
-            data.cardsCollected.Remove(id);
-        }
-        data.cardsCollected.Add(id, collected);
+        data.cardsCollected[id] = collected;
+        Debug.Log($"Saving card {id} collected: {collected}");
     }
     
     private void Update()
@@ -65,9 +75,10 @@ public class Card : MonoBehaviour, IDataPersistence
         }
     }
         
-    private void CollectCard() 
+    private void CollectCard()
     {
-       
+        collected = true;
+        
         _circleCollider.enabled = false;
         _visual.gameObject.SetActive(false);
         visualCue.SetActive(false);
