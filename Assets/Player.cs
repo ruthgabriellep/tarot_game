@@ -21,17 +21,18 @@ public class Player : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
-
+    
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-
+    
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (GameManager.Instance != null && GameManager.Instance.savedPosition != Vector3.zero)
+        if (GameManager.Instance != null && GameManager.Instance.hasSavedPosition)
         {
             transform.position = GameManager.Instance.savedPosition;
+            GameManager.Instance.hasSavedPosition = false;
         }
     }
 }

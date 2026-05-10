@@ -6,6 +6,8 @@ public class Door : MonoBehaviour
     [Header("Visual Cue")] [SerializeField]
     private GameObject visualCue;
 
+    [SerializeField] private Vector3 spawnPositionInNextNextScene;
+
     private BoxCollider2D _boxCollider;
     private SpriteRenderer _visual;
 
@@ -28,6 +30,8 @@ public class Door : MonoBehaviour
 
     void ChangeSceneToLevel()
     {
+        GameManager.Instance.savedPosition = spawnPositionInNextNextScene;
+        GameManager.Instance.hasSavedPosition = true;
         SceneManager.LoadScene("Coast_Transition_Level");
     }
     

@@ -93,4 +93,11 @@ public class Quest
    {
       return new QuestData(state, currentQuestStepIndex, questStepStates);
    }
+   
+   public void LoadQuestData(QuestData data)
+   {
+      this.state = data.state;
+      this.currentQuestStepIndex = data.questStepIndex;
+      this.questStepStates = data.questStepStates;
+   }
 }

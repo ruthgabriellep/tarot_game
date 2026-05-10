@@ -2,6 +2,8 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Xml;
+using Newtonsoft.Json;
 
 public class FileDataHandler
 {
@@ -46,8 +48,15 @@ public class FileDataHandler
                 {
                     dataToLoad = EncryptDecrypt(dataToLoad);
                 }
-
-                loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
+                
+                loadedData = JsonConvert.DeserializeObject<GameData>(dataToLoad,
+                    new JsonSerializerSettings
+                    {
+                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                    });
+                
+                Debug.Log("Loaded JSON: " + dataToLoad);
+                Debug.Log("Quest data keys after load: " + loadedData?.questData?.Count);
             }
             catch (Exception e)
             {
@@ -60,17 +69,28 @@ public class FileDataHandler
 
     public void Save(GameData data, string profileId)
     {
+        string json = JsonUtility.ToJson(data, prettyPrint: true);
+        Debug.Log("Saving JSON: " + json);
+        
         if (profileId == null)
         {
             return;
         }
         
+        Debug.Log("Saving quest data keys: " + data.questData.Count);
+        
         string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
-
-            string dataToStore = JsonUtility.ToJson(data, true);
+            
+            string dataToStore = JsonConvert.SerializeObject(data, Newtonsoft.Json.Formatting.Indented,
+            new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
+            
+            Debug.Log("Saving JSON: " + dataToStore);
 
             if (useEncryption)
             {
@@ -90,6 +110,7 @@ public class FileDataHandler
         {
             Debug.LogError("Error occured when trying to save data to file " + fullPath + "\n" + e);
         }
+        
     }
 
     public Dictionary<string, GameData> LoadAllProfiles()

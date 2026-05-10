@@ -17,6 +17,7 @@ public class DeckManager : MonoBehaviour
         GameEventsManager.instance.deckEvents.onDeckGained += DeckGained;
     }
 
+    
     private void OnDisable()
     {
         GameEventsManager.instance.deckEvents.onDeckGained -= DeckGained;
