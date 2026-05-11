@@ -14,6 +14,12 @@ public static class LevelDisplayNames
             case "Magician_Level_1":
                 return "The Magician's Tower";
             
+            case "WindowInspect":
+                return "The Magician's Tower";
+            
+            case "TapestryInspect":
+                return "The Magician's Tower";
+            
             case "Coast_Transition_Level":
                 return "The Magician's Tower";
             

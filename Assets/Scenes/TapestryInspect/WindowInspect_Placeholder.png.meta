@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ba37624c5be37724f9f496356bbde6fd
+guid: 829804766ae79f545b152437a3257f1d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8518017013874367962
-    second: Wood_Placeholder_0
+      213: 7602098699085678363
+    second: WindowInspect_Placeholder_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,89 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wood_Placeholder_0
+      name: WindowInspect_Placeholder_0
       rect:
         serializedVersion: 2
-        x: 520
-        y: 939
-        width: 350
-        height: 164
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: add17bef753163670800000000000000
-      internalID: 8518017013874367962
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wood_Placeholder_1
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 1500
-        width: 171
-        height: 186
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca2b45278fb0d974dae4f43f1c7f58a7
-      internalID: 163065156
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wood_Placeholder_2
-      rect:
-        serializedVersion: 2
-        x: 519
-        y: 937
-        width: 352
-        height: 166
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4095e0d857eea2e4bbc796880bc1e42a
-      internalID: 1282459470
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wood_Placeholder_3
-      rect:
-        serializedVersion: 2
-        x: 498
-        y: 891
-        width: 418
-        height: 247
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2b4bcdb6eb467c047941d6db640f7589
-      internalID: -910528303
+      spriteID: b17067a3d74108960800000000000000
+      internalID: 7602098699085678363
       vertices: []
       indices: 
       edges: []
@@ -191,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7aad7fe3abc6c8544a300d47fdd0f10e
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -201,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Wood_Placeholder_0: 8518017013874367962
-      Wood_Placeholder_1: 163065156
-      Wood_Placeholder_2: 1282459470
-      Wood_Placeholder_3: -910528303
+      WindowInspect_Placeholder_0: 7602098699085678363
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -65,17 +65,19 @@ namespace QuestSystem
     {
         GameEventsManager.instance.playerEvents.PlayerLevelChange(_currentPlayerLevel);
 
-        RecheckAllQuests();
+        // RecheckAllQuests();
+        
+        StartCoroutine(BroadcastQuestStates());
 
-        foreach (Quest quest in _questMap.Values)
-        {
-            if (quest.state == QuestState.IN_PROGRESS)
-            {
-                quest.InstantiateCurrentQuestStep(transform);
-            }
-
-            GameEventsManager.instance.questEvents.QuestStateChange(quest);
-        }
+        // foreach (Quest quest in _questMap.Values)
+        // {
+        //     if (quest.state == QuestState.IN_PROGRESS)
+        //     {
+        //         quest.InstantiateCurrentQuestStep(transform);
+        //     }
+        //
+        //     GameEventsManager.instance.questEvents.QuestStateChange(quest);
+        // }
     }
 
     private void RecheckAllQuests()
@@ -107,12 +109,18 @@ namespace QuestSystem
     private bool CheckRequirementsMet(Quest quest)
     {
         if (_currentPlayerLevel < quest.info.levelRequirement)
+        {
+            Debug.Log($"Quest {quest.info.id} requirements not met - player level {_currentPlayerLevel} < required {quest.info.levelRequirement}");
             return false;
+        }
 
         foreach (QuestInfoSO prereq in quest.info.questPrerequisites)
         {
             if (GetQuestById(prereq.id).state != QuestState.FINISHED)
+            {
+                Debug.Log($"Quest {quest.info.id} requirements not met - prerequisite {prereq.id} not finished");
                 return false;
+            }
         }
 
         return true;
@@ -172,6 +180,8 @@ namespace QuestSystem
 
     private Dictionary<string, Quest> CreateQuestMap()
     {
+        Debug.Log("CreateQuestMap called - stack trace: " + System.Environment.StackTrace);
+        
         QuestInfoSO[] allQuests = Resources.LoadAll<QuestInfoSO>("Quests");
 
         Dictionary<string, Quest> map = new Dictionary<string, Quest>();
@@ -183,7 +193,6 @@ namespace QuestSystem
                 Debug.LogWarning("Duplicate quest ID: " + questInfo.id);
                 continue;
             }
-
             map.Add(questInfo.id, new Quest(questInfo));
         }
 
@@ -209,6 +218,8 @@ namespace QuestSystem
 
     public void LoadData(GameData data)
     {
+        Debug.Log("QuestManager.LoadData called - hasStarted: " + hasStarted + ", isLoaded: " + isLoaded);
+        
         _currentPlayerLevel = data.playerLevel;
 
         foreach (Quest quest in _questMap.Values)
@@ -228,6 +239,39 @@ namespace QuestSystem
 
         if (hasStarted) InitializeRuntimeState();
     }
+    
+    public void ResetQuests()
+    {
+        Debug.Log("ResetQuests called - stack trace: " + System.Environment.StackTrace);
+        _questMap = CreateQuestMap();
+        isLoaded = false;
+        hasStarted = false;
     }
     
+    private IEnumerator BroadcastQuestStates()
+    {
+        yield return null;
+        
+        RecheckAllQuests();
+    
+        yield return null; 
+    
+        foreach (Quest quest in _questMap.Values)
+        {
+            
+            Debug.Log($"Rechecking {quest.info.id} - state: {quest.state}, " +
+                      $"playerLevel: {_currentPlayerLevel}, " +
+                      $"required: {quest.info.levelRequirement}, " +
+                      $"meets requirements: {CheckRequirementsMet(quest)}");
+            
+            if (quest.state == QuestState.IN_PROGRESS)
+            {
+                quest.InstantiateCurrentQuestStep(transform);
+            }
+
+            GameEventsManager.instance.questEvents.QuestStateChange(quest);
+        }
+    }
+    
+    }
 }

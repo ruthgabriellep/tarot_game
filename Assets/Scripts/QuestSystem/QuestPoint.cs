@@ -120,12 +120,16 @@ namespace QuestSystem
             {
                 _playerIsNear = true;
                 visualCue.SetActive(true);
-            }
-
-            if (_currentQuestState == QuestState.CAN_START)
-            {
-                visualCue.SetActive(false);
-                GameEventsManager.instance.dialogueEvents.EnterDialogue(dialogueKnotName);
+                
+                if (_currentQuestState == QuestState.CAN_START)
+                {
+                    visualCue.SetActive(false);
+                    GameEventsManager.instance.dialogueEvents.EnterDialogue(dialogueKnotName);
+                }
+                else
+                {
+                    visualCue.SetActive(true);
+                }
             }
         }
 

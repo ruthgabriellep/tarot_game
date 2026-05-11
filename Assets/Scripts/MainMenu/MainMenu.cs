@@ -22,32 +22,37 @@ public class MainMenu : Menu
 
     private void Start()
     {
-        if (!DataPersistenceManager.instance.HasGameData())
-        {
-            continueGameButton.interactable = false;
-            loadGameButton.interactable = false;
-        }
+        // if (!DataPersistenceManager.instance.HasGameData())
+        // {
+        // }
+        
+        continueGameButton.interactable = false;
+        loadGameButton.interactable = false;
     }
 
     public void OnNewGameClicked()
     {
-        saveSlotsMenu.ActivateMenu(false);
-        this.DeactivateMenu();
+        // saveSlotsMenu.ActivateMenu(false);
+        // this.DeactivateMenu();
+        
+        DataPersistenceManager.instance.NewGame();
+        DataPersistenceManager.instance.SaveGame();
+        SceneManager.LoadSceneAsync("The_Forest");
     }
 
     public void OnLoadGameClicked()
     {
-        saveSlotsMenu.ActivateMenu(true);
-        this.DeactivateMenu();
+        // saveSlotsMenu.ActivateMenu(true);
+        // this.DeactivateMenu();
     }
 
     public void OnContinueGameClicked()
     {
         DisableMenuButtons();
         
-        DataPersistenceManager.instance.SaveGame();
+        // DataPersistenceManager.instance.SaveGame();
         
-        SceneManager.LoadSceneAsync("The_Forest");
+        SceneManager.LoadSceneAsync(DataPersistenceManager.instance.GetLastSavedScene());
     }
 
     private void DisableMenuButtons()

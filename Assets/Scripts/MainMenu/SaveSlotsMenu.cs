@@ -22,6 +22,8 @@ public class SaveSlotsMenu : Menu
 
     public void OnSaveSlotClicked(SaveSlot saveSlot)
     {
+        Debug.Log("OnSaveSlotClicked - isLoadingGame: " + isLoadingGame + ", profileId: " + saveSlot.GetProfileId());
+        
         DisableMenuButtons();
         
         DataPersistenceManager.instance.ChangeSelectedProfileId(saveSlot.GetProfileId());
@@ -30,11 +32,13 @@ public class SaveSlotsMenu : Menu
         if (!isLoadingGame)
         {
             DataPersistenceManager.instance.NewGame();
+            DataPersistenceManager.instance.SaveGame();
+            SceneManager.LoadSceneAsync("The_Forest");
         }
-        
-        DataPersistenceManager.instance.SaveGame();
-
-        SceneManager.LoadSceneAsync("The_Forest");
+        else
+        {
+            SceneManager.LoadSceneAsync(DataPersistenceManager.instance.GetLastSavedScene());
+        }
     }
 
     public void OnBackClicked()

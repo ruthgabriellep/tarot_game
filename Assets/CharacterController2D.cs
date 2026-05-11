@@ -32,7 +32,10 @@ public class CharacterController2D : MonoBehaviour, IDataPersistence
     public void SaveData(GameData data)
     {
         data.playerPosition = new SerializableVector3(this.transform.position);
-        data.currentLevelName = SceneManager.GetActiveScene().name;
+        Debug.Log("Saving player position: " + this.transform.position);
+        
+        string activeScene = SceneManager.GetActiveScene().name;
+        Debug.Log("Saving scene: " + activeScene);
     }
 
     private void Start() 
@@ -73,5 +76,21 @@ public class CharacterController2D : MonoBehaviour, IDataPersistence
     private void FixedUpdate() 
     {
         _rb.linearVelocity = _velocity;
+    }
+    
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        _velocity = Vector2.zero;
+        _rb.linearVelocity = Vector2.zero;
     }
 }

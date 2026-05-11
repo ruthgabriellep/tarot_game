@@ -18,6 +18,9 @@ public class GameData
     public int playerLevel;
 
     public int currentDeck;
+    
+    public SerializableDictionary<string, bool> woodCollected;
+    public SerializableDictionary<string, bool> boatRepaired;
 
     public GameData()
     {
@@ -25,5 +28,9 @@ public class GameData
         playerPosition = new SerializableVector3(Vector3.zero);
         cardsCollected = new SerializableDictionary<string, bool>();
         questData = new SerializableDictionary<string, QuestData>();
+        woodCollected = new SerializableDictionary<string, bool>();
+        boatRepaired = new SerializableDictionary<string, bool>();
+        playerLevel = 0;
+        currentDeck = 0;
     }
 }
