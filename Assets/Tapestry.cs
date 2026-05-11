@@ -1,14 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tapestry : MonoBehaviour
 {
     
     [Header("Visual Cue")] [SerializeField]
     private GameObject visualCue;
-
-    [SerializeField] private GameObject windowInspect;
-    
-    [SerializeField] public GameObject otherUI;
 
     private BoxCollider2D _boxCollider;
     private SpriteRenderer _visual;
@@ -19,16 +16,19 @@ public class Tapestry : MonoBehaviour
     {
         visualCue.SetActive(false);
         playerInRange = false;
-        windowInspect.SetActive(false);
     }
 
     private void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Showing tapestry inspect");
-            Show();
-            otherUI.SetActive(false);
+            GameManager.Instance.savedPosition = Player.instance.transform.position;
+            GameManager.Instance.hasSavedPosition = true;
+            
+            DataPersistenceManager.instance.SaveGame();
+            Debug.Log("Saved game before entering tapestry");
+            
+            SceneManager.LoadScene("TapestryInspect");
         }
     }
 
@@ -48,10 +48,5 @@ public class Tapestry : MonoBehaviour
             playerInRange = false;
             visualCue.SetActive(false);
         }
-    }
-
-    private void Show()
-    {
-        windowInspect.SetActive(true);
     }
 }

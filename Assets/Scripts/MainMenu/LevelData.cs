@@ -10,8 +10,16 @@ public class LevelData : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
-        data.currentLevelName = SceneManager.GetActiveScene().name;
-        
-        Debug.Log("Saved level: " + data.currentLevelName);
+        string activeScene = SceneManager.GetActiveScene().name;
+
+        if (activeScene != "Main_Menu" &&
+            activeScene != "TapestryInspect" &&
+            activeScene != "WindowInspect" &&
+            activeScene != "Bootstrap")
+        {
+            data.currentLevelName = activeScene;
+
+            Debug.Log("Saved level: " + data.currentLevelName);
+        }
     }
 }

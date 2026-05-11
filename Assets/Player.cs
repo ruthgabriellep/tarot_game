@@ -29,6 +29,10 @@ public class Player : MonoBehaviour
     
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log($"OnSceneLoaded - scene: {scene.name}, " +
+                  $"hasSavedPosition: {GameManager.Instance?.hasSavedPosition}, " +
+                  $"savedPosition: {GameManager.Instance?.savedPosition}");
+        
         if (GameManager.Instance != null && GameManager.Instance.hasSavedPosition)
         {
             transform.position = GameManager.Instance.savedPosition;

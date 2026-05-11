@@ -25,6 +25,29 @@ public class DialoguePanelUI : MonoBehaviour
         contentParent.SetActive(false);
         ResetPanel();
     }
+    
+    private void Start()
+    {
+        // DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+        // if (dialogueManager != null)
+        // {
+        //     dialogueManager.RegisterDialogueUI(this);
+        // }
+        // else
+        // {
+        //     Debug.LogError("DialogueManager not found in scene");
+        // }
+        
+        if (DialogueManager.instance != null)
+        {
+            DialogueManager.instance.RegisterDialogueUI(this);
+            Debug.Log("DialogueUI registered successfully");
+        }
+        else
+        {
+            Debug.LogError("DialogueManager instance not found");
+        }
+    }
 
     private void OnEnable()
     {

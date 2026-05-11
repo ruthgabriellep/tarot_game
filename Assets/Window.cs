@@ -5,8 +5,6 @@ public class Window : MonoBehaviour
 {
     [Header("Visual Cue")] [SerializeField]
     private GameObject visualCue;
-    
-    [SerializeField] public GameObject otherUI;
 
     private BoxCollider2D _boxCollider;
     private SpriteRenderer _visual;
@@ -25,6 +23,8 @@ public class Window : MonoBehaviour
         {
             GameManager.Instance.savedPosition = Player.instance.transform.position;
             GameManager.Instance.hasSavedPosition = true;
+            
+            DataPersistenceManager.instance.SaveGame();
             
             SceneManager.LoadScene("WindowInspect");
         }

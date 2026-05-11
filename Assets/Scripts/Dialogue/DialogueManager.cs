@@ -20,10 +20,22 @@ public class DialogueManager : MonoBehaviour
 
     private InkDialogueVariables inkDialogueVariables;
 
-    [SerializeField] private DialoguePanelUI dialogueUI;
+    // [SerializeField] private DialoguePanelUI dialogueUI;
+
+    private DialoguePanelUI dialogueUI;
+    
+    public static DialogueManager instance { get; private set; }
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+        
         story = new Story(inkJson.text);
         inkExternalFunctions = new InkExternalFunctions();
         inkExternalFunctions.Bind(story);
@@ -32,7 +44,10 @@ public class DialogueManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        inkExternalFunctions.Unbind(story);
+        if (inkExternalFunctions != null)
+        {
+            inkExternalFunctions.Unbind(story);
+        }
     }
     private void OnEnable()
     {
@@ -54,6 +69,7 @@ public class DialogueManager : MonoBehaviour
 
     private void QuestStateChange(Quest quest)
     {
+        Debug.Log($"QuestStateChange received - quest: {quest.info.id}, state: {quest.state}");
         GameEventsManager.instance.dialogueEvents.UpdateInkDialogueVariable(
             quest.info.id + "State",
             new StringValue(quest.state.ToString())
@@ -97,16 +113,33 @@ public class DialogueManager : MonoBehaviour
 
     private void EnterDialogue(string knotName)
     {
-        if (dialoguePlaying)
+        if (dialoguePlaying) return;
+
+        if (dialogueUI == null)
         {
+            StartCoroutine(WaitForUIAndEnterDialogue(knotName));
             return;
         }
+
+        StartDialogue(knotName);
+    }
+
+    private IEnumerator WaitForUIAndEnterDialogue(string knotName)
+    {
+
+        while (dialogueUI == null)
+        {
+            yield return null;
+        }
+        StartDialogue(knotName);
+    }
+    
+    private void StartDialogue(string knotName)
+    {
         dialoguePlaying = true;
-        
+
         GameEventsManager.instance.dialogueEvents.DialogueStarted();
-        
         GameEventsManager.instance.playerEvents.DisablePlayerMovement();
-        
         GameEventsManager.instance.inputEvents.ChangeInputEventContext(InputEventContext.DIALOGUE);
 
         if (!knotName.Equals(""))
@@ -117,9 +150,8 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.LogWarning("Knot name was the empty string when entering dialogue.");
         }
-        
-        inkDialogueVariables.SyncVariablesAndStartListening(story);
 
+        inkDialogueVariables.SyncVariablesAndStartListening(story);
         ContinueOrExitStory();
     }
 
@@ -176,4 +208,11 @@ public class DialogueManager : MonoBehaviour
     {
         return dialogueLine.Trim().Equals("") || dialogueLine.Trim().Equals("\n");
     }
+    
+    public void RegisterDialogueUI(DialoguePanelUI ui)
+    {
+        dialogueUI = ui;
+        Debug.Log("DialogueUI registered successfully");
+    }
+    
 }

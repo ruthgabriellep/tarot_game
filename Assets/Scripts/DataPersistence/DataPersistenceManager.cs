@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using QuestSystem;
 using UnityEngine.SceneManagement;
 
 public class DataPersistenceManager : MonoBehaviour
@@ -46,6 +47,10 @@ public class DataPersistenceManager : MonoBehaviour
         
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
         this.selectedProfileId = dataHandler.GetMostRecentlyUpdatedProfileId();
+        
+        Debug.Log("Selected profile id on startup: " + selectedProfileId);
+        Debug.Log("Has game data: " + HasGameData());
+        
         if (overrideSelectedProfileId)
         {
             this.selectedProfileId = testSelectedProfileId;
@@ -72,6 +77,8 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log("OnSceneLoaded - scene: " + scene.name);
+        
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
 
         if (dataPersistenceObjects == null)
@@ -80,9 +87,18 @@ public class DataPersistenceManager : MonoBehaviour
             return;
         }
 
-        if (scene.name == "MainMenu")
+        if (scene.name == "Main_Menu")
+        {
+            this.gameData = dataHandler.Load(selectedProfileId);
+            return;
+        }
+        
+        if (scene.name == "TapestryInspect" || 
+            scene.name == "WindowInspect" || 
+            scene.name == "Bootstrap")
             return;
         
+        Debug.Log("Calling LoadGame for scene: " + scene.name);
         LoadGame();
     }
 
@@ -99,45 +115,15 @@ public class DataPersistenceManager : MonoBehaviour
             selectedProfileId = "profile1";
         }
         this.gameData = new GameData();
+
+        if (QuestManager.instance != null)
+        {
+            QuestManager.instance.ResetQuests();
+        }
     }
 
     public void LoadGame()
     {
-        // if (disableDataPersistence)
-        // {
-        //     return;
-        // }
-        //
-        // this.gameData = dataHandler.Load(selectedProfileId);
-        //
-        // if (this.gameData.questData == null)
-        // {
-        //     this.gameData.questData =
-        //         new SerializableDictionary<string, QuestData>();
-        // }
-        //
-        // if (this.gameData.cardsCollected == null)
-        // {
-        //     this.gameData.cardsCollected =
-        //         new SerializableDictionary<string, bool>();
-        // }
-        //
-        // if (this.gameData == null && initializeDataIfNull)
-        // {
-        //     NewGame();
-        // }
-        //
-        // if (this.gameData == null)
-        // {
-        //     Debug.Log("No data was found. A New Game needs to be started before data can be loaded.");
-        //     return;
-        // }
-        //
-        // foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
-        // {
-        //     dataPersistenceObj.LoadData(gameData);
-        // }
-        
         if (disableDataPersistence) return;
 
         if (dataHandler == null)
@@ -167,6 +153,12 @@ public class DataPersistenceManager : MonoBehaviour
 
         if (this.gameData.cardsCollected == null)
             this.gameData.cardsCollected = new SerializableDictionary<string, bool>();
+        
+        if (this.gameData.woodCollected == null)
+            this.gameData.woodCollected = new SerializableDictionary<string, bool>();
+
+        if (this.gameData.boatRepaired == null)
+            this.gameData.boatRepaired = new SerializableDictionary<string, bool>();
 
         if (dataPersistenceObjects == null)
         {
@@ -207,10 +199,10 @@ public class DataPersistenceManager : MonoBehaviour
         dataHandler.Save(gameData, selectedProfileId);
     }
 
-    // private void OnApplicationQuit()
-    // {
-    //     SaveGame();
-    // }
+    private void OnApplicationQuit()
+    {
+        SaveGame();
+    }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
@@ -228,5 +220,14 @@ public class DataPersistenceManager : MonoBehaviour
     public Dictionary<string, GameData> GetAllProfilesGameData()
     {
         return dataHandler.LoadAllProfiles();
+    }
+    
+    public string GetLastSavedScene()
+    {
+        if (gameData != null && !string.IsNullOrEmpty(gameData.currentLevelName))
+        {
+            return gameData.currentLevelName;
+        }
+        return "The_Forest";
     }
 }
