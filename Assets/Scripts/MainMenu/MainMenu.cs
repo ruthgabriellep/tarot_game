@@ -15,6 +15,8 @@ public class MainMenu : Menu
 
     [SerializeField] private Button loadGameButton;
     
+    [SerializeField] private Vector3 spawnPositionInNextScene;
+    
     public void ExitGame()
     {
         Application.Quit();
@@ -37,6 +39,8 @@ public class MainMenu : Menu
         
         DataPersistenceManager.instance.NewGame();
         DataPersistenceManager.instance.SaveGame();
+        GameManager.Instance.savedPosition = spawnPositionInNextScene;
+        GameManager.Instance.hasSavedPosition = true;
         SceneManager.LoadSceneAsync("The_Forest");
     }
 

@@ -16,6 +16,8 @@ public class DialogueManager : MonoBehaviour
 
     private bool dialoguePlaying = false;
 
+    public bool IsDialoguePlaying => dialoguePlaying;
+
     private InkExternalFunctions inkExternalFunctions;
 
     private InkDialogueVariables inkDialogueVariables;
@@ -23,6 +25,8 @@ public class DialogueManager : MonoBehaviour
     // [SerializeField] private DialoguePanelUI dialogueUI;
 
     private DialoguePanelUI dialogueUI;
+
+    private bool waitingForUI = false;
     
     public static DialogueManager instance { get; private set; }
 
@@ -88,13 +92,6 @@ public class DialogueManager : MonoBehaviour
 
     private void SubmitPressed(InputEventContext inputEventContext)
     {
-        // if (!inputEventContext.Equals(InputEventContext.DIALOGUE))
-        // {
-        //     return;
-        // }
-        //
-        // ContinueOrExitStory();
-        
         if (!inputEventContext.Equals(InputEventContext.DIALOGUE))
         {
             return;
@@ -117,6 +114,12 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueUI == null)
         {
+
+            if (waitingForUI)
+                return;
+
+            waitingForUI = true;
+            
             StartCoroutine(WaitForUIAndEnterDialogue(knotName));
             return;
         }
@@ -131,18 +134,26 @@ public class DialogueManager : MonoBehaviour
         {
             yield return null;
         }
+
+        waitingForUI = false; 
+        
         StartDialogue(knotName);
     }
     
     private void StartDialogue(string knotName)
     {
+        Debug.Log("START DIALOGUE");
+        
+        if (dialoguePlaying)
+            return;
+        
         dialoguePlaying = true;
 
         GameEventsManager.instance.dialogueEvents.DialogueStarted();
         GameEventsManager.instance.playerEvents.DisablePlayerMovement();
         GameEventsManager.instance.inputEvents.ChangeInputEventContext(InputEventContext.DIALOGUE);
 
-        if (!knotName.Equals(""))
+        if (!string.IsNullOrEmpty(knotName))
         {
             story.ChoosePathString(knotName);
         }
@@ -180,8 +191,8 @@ public class DialogueManager : MonoBehaviour
             {
                 GameEventsManager.instance.dialogueEvents.DisplayDialogue(dialogueLine, story.currentChoices);
             }
-            
-            // GameEventsManager.instance.dialogueEvents.DisplayDialogue(dialogueLine, story.currentChoices);
+
+            Debug.Log($"canContinue: {story.canContinue}, choices: {story.currentChoices.Count}");
         }
         else if (story.currentChoices.Count == 0)
         {
@@ -191,6 +202,8 @@ public class DialogueManager : MonoBehaviour
     
     private void ExitDialogue()
     {
+        Debug.Log("EXIT DIALOGUE");
+        
         dialoguePlaying = false;
         
         GameEventsManager.instance.dialogueEvents.DialogueFinished();

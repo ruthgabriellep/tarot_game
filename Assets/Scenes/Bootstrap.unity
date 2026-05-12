@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 943635939}
   - component: {fileID: 943635938}
   m_Layer: 0
-  m_Name: BoostrapLoader
+  m_Name: BootstrapLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

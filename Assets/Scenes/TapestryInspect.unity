@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textObject: {fileID: 631222411}
-  displayTime: 3
+  displayTime: 2
 --- !u!114 &89003948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,6 +754,7 @@ GameObject:
   - component: {fileID: 666115955}
   - component: {fileID: 666115954}
   - component: {fileID: 666115953}
+  - component: {fileID: 666115956}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -875,6 +876,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666115951}
   m_CullTransparentMesh: 1
+--- !u!114 &666115956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666115951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8f52eec57e7cc498319649903291a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPositionInNextScene: {x: 14, y: 0, z: 0}
 --- !u!1 &701600085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,7 +1149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textObject: {fileID: 1637557911}
-  displayTime: 3
+  displayTime: 2
 --- !u!1 &1610801746
 GameObject:
   m_ObjectHideFlags: 0
@@ -2105,7 +2119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f8f52eec57e7cc498319649903291a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPositionInNextScene: {x: 14, y: -3.5, z: 0}
+  spawnPositionInNextScene: {x: 14, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
