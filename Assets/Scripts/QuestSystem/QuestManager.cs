@@ -64,20 +64,7 @@ namespace QuestSystem
     private void InitializeRuntimeState()
     {
         GameEventsManager.instance.playerEvents.PlayerLevelChange(_currentPlayerLevel);
-
-        // RecheckAllQuests();
-        
         StartCoroutine(BroadcastQuestStates());
-
-        // foreach (Quest quest in _questMap.Values)
-        // {
-        //     if (quest.state == QuestState.IN_PROGRESS)
-        //     {
-        //         quest.InstantiateCurrentQuestStep(transform);
-        //     }
-        //
-        //     GameEventsManager.instance.questEvents.QuestStateChange(quest);
-        // }
     }
 
     private void RecheckAllQuests()
@@ -125,20 +112,6 @@ namespace QuestSystem
 
         return true;
     }
-
-    // private void Update()
-    // {
-    //     // foreach (Quest quest in _questMap.Values)
-    //     // {
-    //     //     if (quest.state == QuestState.REQUIREMENTS_NOT_MET &&
-    //     //         CheckRequirementsMet(quest))
-    //     //     {
-    //     //         ChangeQuestState(quest.info.id, QuestState.CAN_START);
-    //     //     }
-    //     // }
-    //
-    //     if (!isLoaded) return;
-    // }
 
     private void StartQuest(string id)
     {
@@ -199,7 +172,7 @@ namespace QuestSystem
         return map;
     }
 
-    private Quest GetQuestById(string id)
+    public Quest GetQuestById(string id)
     {
         return _questMap[id];
     }
@@ -218,7 +191,7 @@ namespace QuestSystem
 
     public void LoadData(GameData data)
     {
-        Debug.Log("QuestManager.LoadData called - hasStarted: " + hasStarted + ", isLoaded: " + isLoaded);
+        // Debug.Log("QuestManager.LoadData called - hasStarted: " + hasStarted + ", isLoaded: " + isLoaded);
         
         _currentPlayerLevel = data.playerLevel;
 
@@ -251,10 +224,12 @@ namespace QuestSystem
     private IEnumerator BroadcastQuestStates()
     {
         yield return null;
+        yield return null;
         
         RecheckAllQuests();
     
-        yield return null; 
+        yield return null;
+        yield return null;
     
         foreach (Quest quest in _questMap.Values)
         {

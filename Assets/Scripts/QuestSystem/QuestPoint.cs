@@ -6,13 +6,15 @@ namespace QuestSystem
     public class QuestPoint : MonoBehaviour
     {
         [Header("Dialogue")] [SerializeField] private string dialogueKnotName;
-        
+
         [Header("Quest")] [SerializeField] private QuestInfoSO questInfoForPoint;
 
-        [Header("Parameters")] [SerializeField] private GameObject barrier1;
-        
-        [Header("Objectives")]
-        [SerializeField] private GameObject objective1;
+        [Header("Parameters")] [SerializeField]
+        private GameObject barrier1;
+
+        [Header("Objectives")] [SerializeField]
+        private GameObject objective1;
+
         [SerializeField] private GameObject objective2;
 
         [Header("Config")] [SerializeField] private bool startPoint = true;
@@ -29,6 +31,8 @@ namespace QuestSystem
 
         private QuestIcon _questIcon;
 
+        private bool _hasAutoTriggered = false;
+
         private void Awake()
         {
             _questId = questInfoForPoint.id;
@@ -37,10 +41,40 @@ namespace QuestSystem
 
         private void Start()
         {
-            barrier1.SetActive(true); 
+            barrier1.SetActive(true);
             objective1.SetActive(false);
             objective2.SetActive(false);
             visualCue.SetActive(false);
+
+            InitializeQuestState();
+        }
+
+        private void InitializeQuestState()
+        {
+            // if (QuestManager.instance != null)
+            // {
+            //     Quest quest = QuestManager.instance.GetQuestById(_questId);
+            //     if (quest != null)
+            //     {
+            //         _currentQuestState = quest.state;
+            //         _questIcon.SetState(_currentQuestState, startPoint, finishPoint);
+            //         Debug.Log($"QuestPoint Start - got state: {_currentQuestState} for quest: {_questId}");
+            //     }
+            // }
+
+            if (QuestManager.instance == null)
+                return;
+
+            Quest quest = QuestManager.instance.GetQuestById(_questId);
+
+            if (quest == null)
+                return;
+
+            _currentQuestState = quest.state;
+
+            _questIcon.SetState(_currentQuestState, startPoint, finishPoint);
+
+            Debug.Log($"Initialized quest state: {_currentQuestState}");
         }
 
         private void Update()
@@ -72,22 +106,47 @@ namespace QuestSystem
         {
             GameEventsManager.instance.questEvents.onQuestStateChange += QuestStateChange;
             GameEventsManager.instance.inputEvents.onSubmitPressed += SubmitPressed;
+            GameEventsManager.instance.dialogueEvents.onDialogueStarted += OnDialogueStarted;
+            GameEventsManager.instance.dialogueEvents.onDialogueFinished += OnDialogueFinished;
         }
 
         private void OnDisable()
         {
             GameEventsManager.instance.questEvents.onQuestStateChange -= QuestStateChange;
             GameEventsManager.instance.inputEvents.onSubmitPressed -= SubmitPressed;
+            GameEventsManager.instance.dialogueEvents.onDialogueStarted -= OnDialogueStarted;
+            GameEventsManager.instance.dialogueEvents.onDialogueFinished -= OnDialogueFinished;
+        }
+
+        private void OnDialogueStarted()
+        {
+            visualCue.SetActive(false);
+        }
+
+        private void OnDialogueFinished()
+        {
+            if (_playerIsNear && _currentQuestState != QuestState.CAN_START)
+            {
+                visualCue.SetActive(true);
+            }
         }
 
         private void SubmitPressed(InputEventContext inputEventContext)
         {
-            if (!_playerIsNear || !inputEventContext.Equals(InputEventContext.DEFAULT))
+            if (!_playerIsNear)
+                return;
+
+            if (DialogueManager.instance.IsDialoguePlaying)
+                return;
+
+            if (!inputEventContext.Equals(InputEventContext.DEFAULT))
             {
                 return;
             }
 
-            if (!dialogueKnotName.Equals(""))
+            Debug.Log($"{gameObject.name} interact pressed. playerNear = {_playerIsNear}");
+
+            if (!string.IsNullOrEmpty(dialogueKnotName))
             {
                 GameEventsManager.instance.dialogueEvents.EnterDialogue(dialogueKnotName);
             }
@@ -116,31 +175,37 @@ namespace QuestSystem
 
         private void OnTriggerEnter2D(Collider2D otherCollider)
         {
-            if (otherCollider.CompareTag("Player"))
+            if (!otherCollider.CompareTag("Player"))
+                return;
+
+            _playerIsNear = true;
+
+            if (_currentQuestState == QuestState.CAN_START &&
+                !_hasAutoTriggered &&
+                !string.IsNullOrEmpty(dialogueKnotName))
             {
-                _playerIsNear = true;
+                _hasAutoTriggered = true;
+
+                visualCue.SetActive(false);
+
+                GameEventsManager.instance.dialogueEvents.EnterDialogue(dialogueKnotName);
+            }
+            else if (_currentQuestState != QuestState.CAN_START &&
+                     !DialogueManager.instance.IsDialoguePlaying)
+            {
                 visualCue.SetActive(true);
-                
-                if (_currentQuestState == QuestState.CAN_START)
-                {
-                    visualCue.SetActive(false);
-                    GameEventsManager.instance.dialogueEvents.EnterDialogue(dialogueKnotName);
-                }
-                else
-                {
-                    visualCue.SetActive(true);
-                }
             }
         }
 
         private void OnTriggerExit2D(Collider2D otherCollider)
         {
-            if (otherCollider.CompareTag("Player"))
-            {
-                _playerIsNear = false;
-                visualCue.SetActive(false);
-            }
-        }
+            if (!otherCollider.CompareTag("Player"))
+                return;
 
+            _playerIsNear = false;
+            _hasAutoTriggered = false;
+
+            visualCue.SetActive(false);
+        }
     }
 }
