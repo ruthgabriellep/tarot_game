@@ -3,6 +3,9 @@ using System;
 public class MiscEvents
 {
     public event Action onCardCollected;
+
+    public event Action onFountainInspected;
+    
     public void CardCollected() 
     {
         if (onCardCollected != null) 
@@ -19,4 +22,12 @@ public class MiscEvents
     //         onGemCollected();
     //     }
     // }
+    
+    public void FountainInspected()
+    {
+        if (onFountainInspected != null)
+        {
+            onFountainInspected();
+        }
+    }
 }

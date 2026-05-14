@@ -2684,7 +2684,7 @@ MonoBehaviour:
   newGameButton: {fileID: 323490356}
   continueGameButton: {fileID: 63726622}
   loadGameButton: {fileID: 1672846809}
-  spawnPositionInNextScene: {x: -7.5, y: 0, z: 0}
+  spawnPositionInNextScene: {x: -13.5, y: 0, z: 0}
 --- !u!1 &1305879522
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,12 +21,14 @@ public class Fountain : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
+            GameEventsManager.instance.miscEvents.FountainInspected();
+            
             GameManager.Instance.savedPosition = Player.instance.transform.position;
             GameManager.Instance.hasSavedPosition = true;
             
             DataPersistenceManager.instance.SaveGame();
             
-            SceneManager.LoadScene("");
+            SceneManager.LoadScene("FountainInspect");
         }
     }
 

@@ -18,5 +18,5 @@ MonoBehaviour:
   questPrerequisites:
   - {fileID: 11400000, guid: 2063e4508e746ca45a2d1c961cd54757, type: 2}
   questStepPrefabs:
-  - {fileID: 8478484542960851271, guid: 14d697ebba36a194cbf120c888fd9362, type: 3}
+  - {fileID: 1389766778082058935, guid: 840cc77dc25c96544a70cf165def8728, type: 3}
   cardReward: 1

@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HighPriestess_Level_1.unity
     guid: c159ab1c3a9ae1f46be1ff26c56af72d
+  - enabled: 1
+    path: Assets/Scenes/FountainInspect.unity
+    guid: 964e1e08cbfc2fc4da3c61955d7bdee3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
