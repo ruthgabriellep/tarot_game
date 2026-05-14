@@ -29,9 +29,18 @@ public class Player : MonoBehaviour
     
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"OnSceneLoaded - scene: {scene.name}, " +
-                  $"hasSavedPosition: {GameManager.Instance?.hasSavedPosition}, " +
-                  $"savedPosition: {GameManager.Instance?.savedPosition}");
+        string[] scenesWithoutPlayer = { "FountainInspect", "TapestryInspect", "WindowInspect" };
+    
+        bool hidePlayer = System.Array.Exists(scenesWithoutPlayer, s => s == scene.name);
+    
+        // hide/show player visuals and collider
+        GetComponentInChildren<SpriteRenderer>().enabled = !hidePlayer;
+        GetComponent<Collider2D>().enabled = !hidePlayer;
+        GetComponent<Rigidbody2D>().simulated = !hidePlayer;
+        
+        // Debug.Log($"OnSceneLoaded - scene: {scene.name}, " +
+        //           $"hasSavedPosition: {GameManager.Instance?.hasSavedPosition}, " +
+        //           $"savedPosition: {GameManager.Instance?.savedPosition}");
         
         if (GameManager.Instance != null && GameManager.Instance.hasSavedPosition)
         {

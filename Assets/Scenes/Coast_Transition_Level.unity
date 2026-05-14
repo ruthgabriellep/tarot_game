@@ -1140,7 +1140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee829022727c0cf469d79af0f3b15faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPositionInNextScene: {x: -18, y: 0, z: 0}
+  spawnPositionInNextScene: {x: -30, y: 0, z: 0}
   requiredQuest: {fileID: 11400000, guid: 2063e4508e746ca45a2d1c961cd54757, type: 2}
   requiredState: 4
 --- !u!1 &647755564
@@ -2040,7 +2040,7 @@ Transform:
   m_GameObject: {fileID: 1373849918}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.8, y: -9.5739, z: 0.084981084}
+  m_LocalPosition: {x: -41.2, y: -9.5739, z: 0.084981084}
   m_LocalScale: {x: 1.7631774, y: 16.380816, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2202,7 +2202,7 @@ Transform:
   m_GameObject: {fileID: 1518298547}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.56, y: -12.4, z: 0.084981084}
+  m_LocalPosition: {x: 25.1, y: -12.4, z: 0.084981084}
   m_LocalScale: {x: 1.7631774, y: 16.380816, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2769,7 +2769,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3542340889481173423, guid: a323820cc0ba6fc45a957e21576a9964, type: 3}
       propertyPath: m_LocalScale.x
-      value: 53.07401
+      value: 63.92465
       objectReference: {fileID: 0}
     - target: {fileID: 3542340889481173423, guid: a323820cc0ba6fc45a957e21576a9964, type: 3}
       propertyPath: m_LocalScale.y
@@ -2777,7 +2777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3542340889481173423, guid: a323820cc0ba6fc45a957e21576a9964, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.5254
+      value: -10.1725
       objectReference: {fileID: 0}
     - target: {fileID: 3542340889481173423, guid: a323820cc0ba6fc45a957e21576a9964, type: 3}
       propertyPath: m_LocalPosition.y

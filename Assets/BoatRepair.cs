@@ -12,14 +12,59 @@ public class BoatRepair : MonoBehaviour, IDataPersistence
 
     [SerializeField] private GameObject brokenBoat;
     [SerializeField] private GameObject repairedBoat;
-    [SerializeField] private GameObject woodUIItem; // hide this after repair
+    [SerializeField] private GameObject woodUIItem;
+    
+    [Header("Dialogue")]
+    [SerializeField] private string brokenBoatDialogueKnot;
+    [SerializeField] private string repairedBoatDialogueKnot;
+    
+    [Header("Visual Cue")]
+    [SerializeField] private GameObject visualCue;
 
     private bool repaired = false;
+    private bool playerInRange = false;
 
     private void Awake()
     {
         repairedBoat.SetActive(false);
         brokenBoat.SetActive(true);
+        if (visualCue != null)
+            visualCue.SetActive(false);
+    }
+    
+    private void Update()
+    {
+        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        {
+            if (!repaired && !string.IsNullOrEmpty(brokenBoatDialogueKnot))
+            {
+                GameEventsManager.instance.dialogueEvents.EnterDialogue(brokenBoatDialogueKnot);
+            }
+            else if (repaired && !string.IsNullOrEmpty(repairedBoatDialogueKnot))
+            {
+                GameEventsManager.instance.dialogueEvents.EnterDialogue(repairedBoatDialogueKnot);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+            if (visualCue != null)
+                visualCue.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+            if (visualCue != null)
+                visualCue.SetActive(false);
+        }
     }
 
     public void LoadData(GameData data)
@@ -39,8 +84,7 @@ public class BoatRepair : MonoBehaviour, IDataPersistence
     {
         data.boatRepaired[id] = repaired;
     }
-
-    // call this from your existing drag script when wood is dropped on the boat
+    
     public void RepairBoat()
     {
         if (repaired) return;

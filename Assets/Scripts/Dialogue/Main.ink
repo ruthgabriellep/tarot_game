@@ -11,3 +11,11 @@ VAR InspectPaintingQuestState = "REQUIREMENTS_NOT_MET"
 INCLUDE collect_cards_magician.ink
 
 INCLUDE inspect_painting_npc.ink
+
+=== broken_boat ===
+There's a hole in the side of the boat.
+-> END
+
+=== repaired_boat ===
+The boat is ready to sail!
+-> END
