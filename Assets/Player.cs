@@ -38,10 +38,6 @@ public class Player : MonoBehaviour
         GetComponent<Collider2D>().enabled = !hidePlayer;
         GetComponent<Rigidbody2D>().simulated = !hidePlayer;
         
-        // Debug.Log($"OnSceneLoaded - scene: {scene.name}, " +
-        //           $"hasSavedPosition: {GameManager.Instance?.hasSavedPosition}, " +
-        //           $"savedPosition: {GameManager.Instance?.savedPosition}");
-        
         if (GameManager.Instance != null && GameManager.Instance.hasSavedPosition)
         {
             transform.position = GameManager.Instance.savedPosition;

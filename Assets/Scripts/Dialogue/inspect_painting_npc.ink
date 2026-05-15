@@ -30,7 +30,7 @@ I can sense that you're lost...
         ~ StartQuest(InspectPaintingQuestId)
         -> canStart
     * [Can you help me?]
-    
+    You can look into the fountain for answers(?)
         -> END
 
 = inProgress
@@ -42,21 +42,24 @@ Gaze into the water and tell me what you notice...
 What did you notice?
     * [I saw myself becoming part of the sky. There were stars in my hair.]
         Most look only at their faces... 
+        At the tangible...
         -> canFinish
     * [The water rippled.]
         There is always stillness after the ripples.
         -> canFinish
     * [I could see my reflection but I looked different.]
         It looked like you, didn't it?
+        
         -> canFinish
     * [That's it.]
     This is just the beginning of your journey...
-    It may seem uncertain now, but clarity will land...
-
+    It may seem uncertain now, but everything will fall into place...
+    Continue your journey...
+    Your boat will take you to the other side of the coast...
+    Be careful... the water can turn crayzay
     ~ FinishQuest(InspectPaintingQuestId)
         -> END
         
 
 = finished
-Once you pass the islands, the water won't be so forgiving. 
 -> END
