@@ -47,6 +47,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Hills
+    uniqueID: 312761555
+    locked: 0
+  - name: River
+    uniqueID: 4255052529
+    locked: 0
+  - name: MiddleTrees
+    uniqueID: 4264283933
+    locked: 0
+  - name: FrontTrees
+    uniqueID: 270615047
+    locked: 0
   - name: Floor
     uniqueID: 1296287681
     locked: 0

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: efe95f466148216418280f33c998372b
+guid: 3b311000fc02d6a479c89f2bb50d3057
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8176249547994235977
-    second: TFJ_0_Trees_0
+      213: -8770193210131082077
+    second: Untitled_Artwork (11)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TFJ_0_Trees_0
+      name: Untitled_Artwork (11)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7bbfad01b50288e80800000000000000
-      internalID: -8176249547994235977
+      spriteID: 3a4189aedb30a4680800000000000000
+      internalID: -8770193210131082077
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TFJ_0_Trees_0: -8176249547994235977
+      Untitled_Artwork (11)_0: -8770193210131082077
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
