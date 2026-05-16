@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 98067ba6ffa26cb42bbc36c7764dc952
+guid: 91373637c88ccbb4c986bd03e7bd7983
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3874346193374326280
-    second: TFJ_0_Hills_0
+      213: 2994943217060767025
+    second: Untitled_Artwork (8)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TFJ_0_Hills_0
+      name: Untitled_Artwork (8)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 167
+        y: 0
         width: 4096
-        height: 665
+        height: 1714
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80ea6f0f55174c530800000000000000
-      internalID: 3874346193374326280
+      spriteID: 1356f5fecfc209920800000000000000
+      internalID: 2994943217060767025
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TFJ_0_Hills_0: 3874346193374326280
+      Untitled_Artwork (8)_0: 2994943217060767025
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
