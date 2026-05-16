@@ -9,6 +9,11 @@ public class DogRunSequence : MonoBehaviour
 
     private bool triggered = false;
 
+    [Header("SFX")] 
+    [SerializeField] private AudioClip bark;
+
+    [SerializeField] private AudioClip dogRun;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (triggered) return;
@@ -22,11 +27,13 @@ public class DogRunSequence : MonoBehaviour
 
     IEnumerator Sequence()
     {
-        // stop player movement
+        AudioManager.Instance.PlaySFX(bark);
+        
         GameEventsManager.instance.playerEvents.DisablePlayerMovement();
-
-        // stop follow script
+        
         dogFollow.followingPlayer = false;
+        
+        AudioManager.Instance.PlaySFX(dogRun);
 
         // dog runs away
         while (Vector2.Distance(dogFollow.transform.position, runTarget.position) > 0.1f)
@@ -39,11 +46,8 @@ public class DogRunSequence : MonoBehaviour
 
             yield return null;
         }
-
-        // optional
         dogFollow.gameObject.SetActive(false);
-
-        // re-enable player movement
+        
         GameEventsManager.instance.playerEvents.EnablePlayerMovement();
     }
 }
