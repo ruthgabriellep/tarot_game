@@ -578,26 +578,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2508744300420369025, guid: 1599a394d556b874da1112774d53b369, type: 3}
-      propertyPath: m_Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2508744300420369025, guid: 1599a394d556b874da1112774d53b369, type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2508744300420369025, guid: 1599a394d556b874da1112774d53b369, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2745204252463802272, guid: 1599a394d556b874da1112774d53b369, type: 3}
-      propertyPath: m_Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2745204252463802272, guid: 1599a394d556b874da1112774d53b369, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4362786929757141565, guid: 1599a394d556b874da1112774d53b369, type: 3}
       propertyPath: m_LocalPosition.x
       value: -27.523836
@@ -637,18 +617,6 @@ PrefabInstance:
     - target: {fileID: 4362786929757141565, guid: 1599a394d556b874da1112774d53b369, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146292294395504415, guid: 1599a394d556b874da1112774d53b369, type: 3}
-      propertyPath: sfxVolume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146292294395504415, guid: 1599a394d556b874da1112774d53b369, type: 3}
-      propertyPath: musicVolume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146292294395504415, guid: 1599a394d556b874da1112774d53b369, type: 3}
-      propertyPath: fadeDuration
-      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
