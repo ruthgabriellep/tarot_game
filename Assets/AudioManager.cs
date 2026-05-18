@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
     private AudioSource musicSource;
 
     [SerializeField] private AudioSource sfxSource;
+    
+    [SerializeField] private AudioSource ambienceSource;
 
     [Header("Starting Music")] [SerializeField]
     private AudioClip background;
@@ -104,6 +106,28 @@ public class AudioManager : MonoBehaviour
     {
         sfxVolume = volume;
         sfxSource.volume = volume;
+    }
+    
+    public void StopSFX()
+    {
+        sfxSource.Stop();
+    }
+    
+    public void PlayAmbience(AudioClip clip)
+    {
+        if (clip == null) return;
+
+        if (ambienceSource.clip == clip && ambienceSource.isPlaying)
+            return;
+
+        ambienceSource.clip = clip;
+        ambienceSource.loop = true;
+        ambienceSource.Play();
+    }
+
+    public void StopAmbience()
+    {
+        ambienceSource.Stop();
     }
     
 }

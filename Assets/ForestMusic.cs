@@ -7,8 +7,10 @@ public class ForestMusic : MonoBehaviour
 
     void Start()
     {
+        AudioManager.Instance.StopSFX();
+        
         AudioManager.Instance.PlayMusic(forestMusic);
-        AudioManager.Instance.PlaySFX(stream);
+        AudioManager.Instance.PlayAmbience(stream);
     }
 
 }
