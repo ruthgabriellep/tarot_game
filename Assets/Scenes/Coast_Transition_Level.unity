@@ -1762,7 +1762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualCue: {fileID: 1559452738}
-  spawnPositionInNextNextScene: {x: -19.8, y: 0, z: 0}
+  spawnPositionInNextNextScene: {x: -20, y: 0, z: 0}
 --- !u!1 &719635004
 GameObject:
   m_ObjectHideFlags: 0
@@ -3583,7 +3583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1763975710
 Transform:
   m_ObjectHideFlags: 0
