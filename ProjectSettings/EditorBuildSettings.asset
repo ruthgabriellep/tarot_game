@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main_Menu.unity
     guid: 7f0033ad2851a67419749008daf7a432
   - enabled: 1
-    path: Assets/Scenes/The_Forest.unity
+    path: Assets/Art/The_Forest.unity
     guid: 2defea9935ac72a45aee90a0c9d384ff
   - enabled: 1
     path: Assets/Scenes/Coast_Transition_Level.unity

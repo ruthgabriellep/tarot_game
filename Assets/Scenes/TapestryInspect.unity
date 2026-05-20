@@ -889,7 +889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f8f52eec57e7cc498319649903291a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPositionInNextScene: {x: 14, y: 0, z: 0}
+  spawnPositionInNextScene: {x: 13.5, y: 0, z: 0}
 --- !u!1 &701600085
 GameObject:
   m_ObjectHideFlags: 0

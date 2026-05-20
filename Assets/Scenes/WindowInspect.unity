@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textObject: {fileID: 1232721155}
+  otherButton: {fileID: 0}
   displayTime: 1
 --- !u!114 &89003948
 MonoBehaviour:
@@ -660,7 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c372fbf4a72fc4d8fa8f4927eea109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPositionInNextScene: {x: 1, y: 0, z: 0}
+  spawnPositionInNextScene: {x: -6, y: 0, z: 0}
 --- !u!1 &701600085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,6 +1176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textObject: {fileID: 1637557911}
+  otherButton: {fileID: 0}
   displayTime: 3
 --- !u!1 &1610801746
 GameObject:
