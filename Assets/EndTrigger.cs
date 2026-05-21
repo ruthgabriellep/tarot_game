@@ -7,7 +7,7 @@ public class EndTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadSceneAsync("Bootstrap");
+            SceneManager.LoadSceneAsync("Main_Menu");
         }
     }
 }
