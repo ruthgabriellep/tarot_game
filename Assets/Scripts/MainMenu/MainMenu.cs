@@ -41,7 +41,7 @@ public class MainMenu : Menu
         DataPersistenceManager.instance.SaveGame();
         GameManager.Instance.savedPosition = spawnPositionInNextScene;
         GameManager.Instance.hasSavedPosition = true;
-        SceneManager.LoadSceneAsync("The_Forest");
+        SceneManager.LoadSceneAsync("Comic");
     }
 
     public void OnLoadGameClicked()
