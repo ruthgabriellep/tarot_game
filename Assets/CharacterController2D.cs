@@ -9,6 +9,10 @@ public class CharacterController2D : MonoBehaviour, IDataPersistence
 
     private Rigidbody2D _rb;
     private Vector2 _velocity = Vector2.zero;
+    
+    private Rigidbody2D _currentMovementRb;
+    
+    [SerializeField] private Transform visual;
 
 
     private bool _movementDisabled = false;
@@ -16,6 +20,8 @@ public class CharacterController2D : MonoBehaviour, IDataPersistence
     private void Awake() 
     {
         _rb = GetComponent<Rigidbody2D>();
+
+        _currentMovementRb = _rb;
     }
 
     public void LoadData(GameData data)
@@ -75,7 +81,11 @@ public class CharacterController2D : MonoBehaviour, IDataPersistence
 
     private void FixedUpdate() 
     {
-        _rb.linearVelocity = _velocity;
+        // _rb.linearVelocity = _velocity;
+
+        _currentMovementRb.linearVelocity = _velocity;
+        
+        UpdateFacingDirection();
     }
     
     private void OnEnable()
@@ -90,7 +100,39 @@ public class CharacterController2D : MonoBehaviour, IDataPersistence
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // _velocity = Vector2.zero;
+        // _rb.linearVelocity = Vector2.zero;
+        
         _velocity = Vector2.zero;
+
+        if (_currentMovementRb != null)
+        {
+            _currentMovementRb.linearVelocity = Vector2.zero;
+        }
+    }
+    
+    public void EnterBoat(Rigidbody2D boatRb, Transform seat)
+    {
+        transform.SetParent(boatRb.transform);
+
+        transform.position = seat.position;
+
+        _currentMovementRb = boatRb;
+
         _rb.linearVelocity = Vector2.zero;
+
+        _rb.simulated = false;
+    }
+    
+    private void UpdateFacingDirection()
+    {
+        if (_velocity.x > 0.01f)
+        {
+            visual.localScale = new Vector3(1, 1, 1);
+        }
+        else if (_velocity.x < -0.01f)
+        {
+            visual.localScale = new Vector3(-1, 1, 1);
+        }
     }
 }

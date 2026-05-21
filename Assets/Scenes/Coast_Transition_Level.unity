@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee829022727c0cf469d79af0f3b15faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPositionInNextScene: {x: -30, y: 0, z: 0}
+  spawnPositionInNextScene: {x: -27, y: 0, z: 0}
   requiredQuest: {fileID: 11400000, guid: 2063e4508e746ca45a2d1c961cd54757, type: 2}
   requiredState: 4
 --- !u!1 &578184723

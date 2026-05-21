@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main_Menu.unity
     guid: 7f0033ad2851a67419749008daf7a432
   - enabled: 1
+    path: Assets/Scenes/Comic.unity
+    guid: 2664ba5c2678ee14ea3caee2f2d87692
+  - enabled: 1
     path: Assets/Art/The_Forest.unity
     guid: 2defea9935ac72a45aee90a0c9d384ff
   - enabled: 1
@@ -38,6 +41,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FountainInspect.unity
     guid: 964e1e08cbfc2fc4da3c61955d7bdee3
+  - enabled: 1
+    path: Assets/Art/The_Empress_Boat.unity
+    guid: b1a2ccf50acb59344a21efbf54817e21
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
