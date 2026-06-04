@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 189.6, y: -240}
+  m_AnchoredPosition: {x: 233.6, y: -309.3}
   m_SizeDelta: {x: 67.8248, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &89003947
@@ -194,7 +194,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 126430480}
   - component: {fileID: 126430479}
   - component: {fileID: 126430478}
+  - component: {fileID: 126430481}
   m_Layer: 5
   m_Name: Temple
   m_TagString: Untagged
@@ -381,6 +382,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &126430481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126430476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186758ea12653b643b13961131bb5a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customCursor: {fileID: 2800000, guid: debc7293efdea6347a630ae0d6cfd1fd, type: 3}
 --- !u!1 &190594993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,8 +1068,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -85, y: -47}
-  m_SizeDelta: {x: 84.4819, y: 52.5427}
+  m_AnchoredPosition: {x: -89.473854, y: -165.11581}
+  m_SizeDelta: {x: 126.1245, y: 53.5111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1562650014
 MonoBehaviour:
@@ -1138,7 +1152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1490,6 +1504,7 @@ GameObject:
   - component: {fileID: 1763757006}
   - component: {fileID: 1763757005}
   - component: {fileID: 1763757004}
+  - component: {fileID: 1763757007}
   m_Layer: 5
   m_Name: Boat
   m_TagString: Untagged
@@ -1580,6 +1595,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &1763757007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763757002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186758ea12653b643b13961131bb5a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customCursor: {fileID: 2800000, guid: debc7293efdea6347a630ae0d6cfd1fd, type: 3}
 --- !u!1 &1928119657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,14 +1796,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4867924, g: 0.4867924, b: 0.4867924, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7602098699085678363, guid: 34485371f6f757c43a627586ea063c2c, type: 3}
+  m_Sprite: {fileID: -6379118515937032578, guid: 06e12a7c81ebbd742b8a8a6962e7fb1b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
