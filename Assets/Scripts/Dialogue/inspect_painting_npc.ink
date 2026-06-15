@@ -54,7 +54,7 @@ What did you notice?
     * [That's it.]
     Like I said before, it is only the beginning.
     All you have to do is let the moment pass.
-    Take the Magician's boat.
+    Take the Magician's boat pass the mountains.
     Careful now, still waters run deep...
     ~ FinishQuest(InspectPaintingQuestId)
         -> END

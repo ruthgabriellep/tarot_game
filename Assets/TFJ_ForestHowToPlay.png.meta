@@ -1,0 +1,556 @@
+fileFormatVersion: 2
+guid: 16e8e1864a1b2604ab43e3c569f31191
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6627023611469847781
+    second: TFJ_ForestHowToPlay_0
+  - first:
+      213: -2414215075761405565
+    second: TFJ_ForestHowToPlay_1
+  - first:
+      213: -3279915171991512063
+    second: TFJ_ForestHowToPlay_2
+  - first:
+      213: -7931941620722008032
+    second: TFJ_ForestHowToPlay_3
+  - first:
+      213: 1223993984775946446
+    second: TFJ_ForestHowToPlay_4
+  - first:
+      213: 4347121721630992661
+    second: TFJ_ForestHowToPlay_5
+  - first:
+      213: -8912568475591270683
+    second: TFJ_ForestHowToPlay_6
+  - first:
+      213: -217928601040570145
+    second: TFJ_ForestHowToPlay_7
+  - first:
+      213: 8577683643594289760
+    second: TFJ_ForestHowToPlay_8
+  - first:
+      213: -88870858751607406
+    second: TFJ_ForestHowToPlay_9
+  - first:
+      213: 4544750316458571319
+    second: TFJ_ForestHowToPlay_10
+  - first:
+      213: 7943521411160332526
+    second: TFJ_ForestHowToPlay_11
+  - first:
+      213: 4461778988554470377
+    second: TFJ_ForestHowToPlay_12
+  - first:
+      213: 7416897539009892404
+    second: TFJ_ForestHowToPlay_13
+  - first:
+      213: -5783920389934018652
+    second: TFJ_ForestHowToPlay_14
+  - first:
+      213: -4393960510483738848
+    second: TFJ_ForestHowToPlay_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_0
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 807
+        width: 38
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b13a63803251804a0800000000000000
+      internalID: -6627023611469847781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 815
+        width: 34
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38149ddfd2cfe7ed0800000000000000
+      internalID: -2414215075761405565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_2
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 824
+        width: 23
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c180067866b72d0800000000000000
+      internalID: -3279915171991512063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_3
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 818
+        width: 28
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0208ab50f151ce190800000000000000
+      internalID: -7931941620722008032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_4
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 818
+        width: 28
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec009cd4b008cf010800000000000000
+      internalID: 1223993984775946446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_5
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 784
+        width: 155
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 519233d7c24145c30800000000000000
+      internalID: 4347121721630992661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_6
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 828
+        width: 33
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ee99083132305480800000000000000
+      internalID: -8912568475591270683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_7
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 826
+        width: 44
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd8349c8713c9fcf0800000000000000
+      internalID: -217928601040570145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_8
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 820
+        width: 27
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 062bd1cc3dd0a0770800000000000000
+      internalID: 8577683643594289760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_9
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 784
+        width: 155
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29df931cc6444cef0800000000000000
+      internalID: -88870858751607406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_10
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 817
+        width: 34
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7367b5d6552321f30800000000000000
+      internalID: 4544750316458571319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_11
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 826
+        width: 35
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee8dbe903ae0d3e60800000000000000
+      internalID: 7943521411160332526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_12
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 820
+        width: 40
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e3471fb95c6bed30800000000000000
+      internalID: 4461778988554470377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_13
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 826
+        width: 35
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 430572ce30d1ee660800000000000000
+      internalID: 7416897539009892404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_14
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 826
+        width: 31
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4af08d4cc036bbfa0800000000000000
+      internalID: -5783920389934018652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_15
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 824
+        width: 23
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02fc58722348503c0800000000000000
+      internalID: -4393960510483738848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TFJ_ForestHowToPlay_16
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 774
+        width: 1073
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 303d4417d7d11bf4d90c463f31bed9fe
+      internalID: -918243632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9b5b48385d031b047bbe886abf667961
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TFJ_ForestHowToPlay_0: -6627023611469847781
+      TFJ_ForestHowToPlay_1: -2414215075761405565
+      TFJ_ForestHowToPlay_10: 4544750316458571319
+      TFJ_ForestHowToPlay_11: 7943521411160332526
+      TFJ_ForestHowToPlay_12: 4461778988554470377
+      TFJ_ForestHowToPlay_13: 7416897539009892404
+      TFJ_ForestHowToPlay_14: -5783920389934018652
+      TFJ_ForestHowToPlay_15: -4393960510483738848
+      TFJ_ForestHowToPlay_16: -918243632
+      TFJ_ForestHowToPlay_2: -3279915171991512063
+      TFJ_ForestHowToPlay_3: -7931941620722008032
+      TFJ_ForestHowToPlay_4: 1223993984775946446
+      TFJ_ForestHowToPlay_5: 4347121721630992661
+      TFJ_ForestHowToPlay_6: -8912568475591270683
+      TFJ_ForestHowToPlay_7: -217928601040570145
+      TFJ_ForestHowToPlay_8: 8577683643594289760
+      TFJ_ForestHowToPlay_9: -88870858751607406
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
